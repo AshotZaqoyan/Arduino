@@ -1,0 +1,24 @@
+.led{
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.nkar{
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+p{
+    font-size: 20px;
+}
+li{
+    font-size: 20px;
+    color: #164b66;
+}
+.ver{
+    color: #3D9DCC;
+}
+.ver_c{
+    text-align: center;
+    color: #3D9DCC;
+}

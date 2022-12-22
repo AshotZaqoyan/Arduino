@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css.css">
+    <title>Sengment</title>
+
+</head>
+<body>
+    <h1 align="center"><font color="blue">Ardunio-ի յոթսեգմենտային ցուցիչ</h1></font>
+    <img src="img/indicator.jpg" class="nkar">
+    <p>Մոդուլը փոքր լուսադիոդային ցուցիչ է, որում կան յոթ լեդ (դրա շնորհիվ ցուցիչը ստացել է իր անունը) և ութերորդ լեդ-ը՝ կետի տեսքով: Միացնելով լեդերը <b><font color="cyan">Arduino Uno-</font></b> ից տարբեր հաջորդականությամբ ՝ կարող եք տարբեր թվեր ցուցադրել
+         <br>
+         Պետք է նկատի ունենալ, որ վահանակը չունի ռեզիստորներ, ուստի լեդերը միացնելիս օգտագործեք արտաքին դիմադրություններ: 
+         <br>
+    </p>
+    <h2>Անհրաժեշտ էլմենտները</h2>
+    <ul>
+        <li>Arduino Uno/Ardunio Nano/Ardunio Mega</li>
+        <li>Յոթ սեգմենտային ցուցիչ 5161as/hdsp7503</li>
+        <li>Տակտային սեղմակ</li>
+        <li>ռեզիստորներ 220օմ</li>
+        <li> <font color="cyan">breadboard</li></font>
+        <li>Լարեր «պապա-պապա»</li>
+        </ul>
+        <img src="img/segment_miacum.jpg" class="nkar">
+        <p>Այս օրինակում մենք հերթով կմիացնենք լեդեր ՝ վահանակի վրա տարբեր թվեր նշելու համար:
+            </p>
+         <font size="4">   <pre>
+ <font color="green">#define</font>  A 8
+ <font color="green"># define </font>B 7
+ <font color="green"># define</font> B 7
+ <font color="green"># define</font> C 6
+<font color="green"> # define </font>D 5
+<font color="green"> # define </font>E 4
+<font color="green"> # define </font>F 3
+<font color="green"> # define</font> G 2
+
+<font color="blue">void </font><font color="green"> setup</font> () {
+ <font color="#F56302">  pinMode</font> (A,<font color="cyan"> OUTPUT </font> );
+ <font color="#F56302">  pinMode</font> (B,<font color="cyan"> OUTPUT </font>);
+<font color="#F56302">   pinMode</font> (C,<font color="cyan"> OUTPUT  </font>);
+<font color="#F56302">   pinMode</font> (D,<font color="cyan"> OUTPUT  </font>);
+<font color="#F56302">   pinMode </font>(E,<font color="cyan"> OUTPUT  </font>);
+<font color="#F56302">   pinMode </font>(F,<font color="cyan"> OUTPUT </font>);
+<font color="#F56302">   pinMode</font> (G,<font color="cyan"> OUTPUT</font>);
+}
+
+ <font color="blue">void</font>  <font color="green">loop</font> () {
+ <font color="F56302">digitalWrite</font> (A,<font color="cyan"> LOW</font>); //թիվ 1 
+ <font color="F56302">digitalWrite</font> (B,<font color="cyan"> HIGH</font>);
+ <font color="F56302">digitalWrite</font> (C, <font color="cyan">HIGH</font>);
+ <font color="F56302">digitalWrite</font> (D,<font color="cyan"> LOW</font>);
+ <font color="F56302">digitalWrite </font>(E, <font color="cyan">LOW</font>);
+ <font color="F56302">digitalWrite </font>(F, <font color="cyan">LOW</font>);
+ <font color="F56302">digitalWrite</font> (G,<font color="cyan"> LOW</font>);
+ <font color="F56302">delay</font> (1000);
+ <font color="F56302">digitalWrite</font> (A, <font color="cyan">HIGH</font>); //թիվ 2 
+ <font color="F56302">digitalWrite</font> (B,<font color="cyan"> HIGH</font>);
+ <font color="F56302">digitalWrite</font> (C, <font color="cyan">LOW</font>);
+ <font color="F56302">digitalWrite</font> (D, <font color="cyan">HIGH</font>);
+ <font color="F56302">digitalWrite</font> (E, <font color="cyan">HIGH</font>);
+ <font color="F56302">digitalWrite</font> (F, <font color="cyan">LOW</font>); 
+ <font color="F56302">digitalWrite</font> (G,<font color="cyan"> LOW</font>);
+ <font color="F56302">delay</font> (1000);
+ <font color="F56302">digitalWrite</font> (A,<font color="cyan">HIGH</font>); //թիվ 3 
+ <font color="F56302">digitalWrite</font> (B,<font color="cyan">HIGH</font>);
+ <font color="F56302">digitalWrite</font> (C,<font color="cyan">HIGH</font>);
+ <font color="F56302">digitalWrite</font> (D,<font color="cyan">HIGH</font>);
+ <font color="F56302">digitalWrite</font> (E,<font color="cyan">LOW</font>);
+ <font color="F56302">digitalWrite</font> (F,<font color="cyan">LOW </font>);
+ <font color="F56302">digitalWrite</font> (G,<font color="cyan">HIGH</font>);
+ <font color="F56302">delay</font> (1000);
+}
+
+            </pre></font>
+
+</body>
+</html>

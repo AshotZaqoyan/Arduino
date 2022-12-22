@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">Rgb լեդի միացում ARDUINO-ին</h1>
+            <p>
+                Կիրառելով RGB լեդ հնարավորություն ենք ստանում լուսավորել ցանկացած գույնով։
+            </p>
+            <p>
+                Բոլոր գույները ստանալու ստանալու համար անհրաժեշտ է 3 գույն՝ RGB(red-կարմիր, green-կանաչ,
+                blue-կապույտ)։RGB-ին
+                կիրառվում է ոչ միայն գրաֆիկական խմբագրիչներում, այլ նաև կայքերի պատրաստման ժամանակ։ Խառնելով գույները
+                տարբեր
+                մասնաբաժիններով, հնարավոր է ստանալ ցանկացած գույն։
+            </p>
+            <p>
+                RGB լեդը ունի ելքեր՝ մեկը ընդհանուր(անոդ կամ կատոդ՝ ամենաերկար ելք) և 3 գույնային ելքեր։Յուրաքանչյուր
+                գունային
+                ելքին պետք է միացնել ռեզիստոր։
+            </p>
+            <p>
+
+            </p>
+            <img src="img/rgb.JPG" width="600" height="300" class="nkar">
+            <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+            <ul>
+                <li>Arduino Uno/ Arduino Nano/ Arduino Mega</li>
+                <li>breadboard</li>
+                <li>RGB լեդ</li>
+                <li>3 ռեզիստոր 220օմ</li>
+                <li>լարեր «պապա֊մամա»</li>
+            </ul>
+            <img src="img/rgb sxema.JPG" width="600" height="300" class="nkar">
+            <table>
+                <tr>
+
+
+                    <td width="45%">
+                        <pre><font size="4">
+        <font color=#d4d2d2>#define</font> RED 11  
+        <font color=#d4d2d2>#define</font> GRN 10
+        <font color=#d4d2d2>#define</font> BLU 9 
+         
+        <font color=blue>void</font> <font color=#27d652>setup</font>() {
+        <font color=#f56302> pinMode</font>(RED, <font color=blue> OUTPUT</font>);  
+         <font color=#f56302>  pinMode</font>(GRN, <font color=blue> OUTPUT</font>); 
+        <font color=#f56302> pinMode</font>(GRN, <font color=blue>OUTPUT</font> ); 
+         <font color=#f56302> pinMode</font>(BLU, <font color=blue> OUTPUT</font>);  
+        }
+         
+        <font color=blue>void </font> <font color=#27d652>loop</font> () {
+           // սահուն միանում/ անջատվում է կարմիր գույնը
+           for (int i = 0; i <= 255; i++) {
+            <font color=#f56302> analogWrite</font>(RED, i);
+            <font color=#f56302>  delay</font>(2);
+           }
+           for (int i = 255; i >= 0; i--) {
+            <font color=#f56302>analogWrite</font>   (RED, i);
+            <font color=#f56302>  delay</font>(2);
+           }
+        
+           // սահուն միանում/ անջատվում է կանաչ գույնը
+           for (int i = 0; i <= 255; i++) {
+            <font color=#f56302>  analogWrite</font>(GRN, i);
+            <font color=#f56302> delay</font>(2);
+           }
+           for (int i = 255; i >= 0; i--) {
+            <font color=#f56302>  analogWrite</font>(GRN, i);
+            <font color=#f56302>  delay</font>(2);
+           }
+        
+           // սահուն միանում/ անջատվում է կապույտ գույնը
+           for (int i = 0; i <= 255; i++) {
+            <font color=#f56302>   analogWrite</font>(BLU, i);
+            <font color=#f56302> delay</font>(2);
+           }
+           for (int i = 255; i >= 0; i--) {
+            <font color=#f56302> analogWrite</font>(BLU, i);
+            <font color=#f56302>  delay</font>(2);
+           }
+        }
+                </font></pre>
+                    </td>
+
+                    <td>
+                        <font size="5" color="#2d59fa">Կամ</font>
+                    </td>
+                    <td>
+                        <pre><font size="4">
+                    <font color=#d4d2d2>#define</font> RED 11  
+                    <font color=#d4d2d2>#define</font> GRN 12 
+                    <font color=#d4d2d2>#define</font>  BLU 13  
+         
+                    <font color=#blue>void </font>  <font color=#27d652>setup</font>() {
+                        <font color=#f56302>pinMode</font>(RED, <font color=blue>OUTPUT</font> );  
+                        <font color=#f56302>pinMode</font> (GRN, <font color=blue>OUTPUT</font> ); 
+                        <font color=#f56302>pinMode</font> (BLU, <font color=blue>OUTPUT</font> );  
+                    }
+         
+                    <font color=blue>void</font> <font color=#27d652>loop</font>() {
+         
+                        <font color=#f56302> digitalWrite</font>(RED, <font color=blue>HIGH</font> ); 
+                        <font color=#f56302> digitalWrite</font>(GRN,  <font color=blue>LOW</font>);
+                        <font color=#f56302> digitalWrite</font>(BLU,  <font color=blue>LOW</font>);
+         
+                        <font color=#f56302> delay</font>(1000); // սպասել
+         
+                       <font color=#f56302>  digitalWrite</font>(RED, <font color=blue>LOW</font> );
+                        <font color=#f56302>  digitalWrite</font>(GRN, <font color=blue>HIGH</font> ); 
+                        <font color=#f56302> digitalWrite</font>(BLU, <font color=blue>LOW</font> );
+         
+                        <font color=#f56302> delay</font>(1000); // սպասել
+         
+                        <font color=#f56302> digitalWrite</font>(RED,  <font color=blue>LOW</font>);
+                        <font color=#f56302> digitalWrite</font>(GRN, <font color=blue>LOW</font> );
+                        <font color=#f56302> digitalWrite</font>(BLU, <font color=blue>HIGH</font> ); 
+         
+                        <font color=#f56302>delay</font>(1000); // սպասել
+                    }
+        
+                </font>
+        <h2 class="ver">Կոդի մեկնաբանություն</h2>
+                </pre>
+                    </td>
+                </tr>
+            </table>
+            <ul>
+                <li>RGB լեդը ղեկավարելու համար կիրառվում է անալոգային ելքերը, դրա համար անհրաժեշտ է լեդը միացնել
+                    անալօոգային
+                    ելքերին.
+
+                    օր՝. 11, 10, և 9 ելքերին, և այդ ելքերին հաղորդել տարբեձր արժեքներ, կիրառելով for ցիկլը</li>
+
+                <li>Այսպիսով, RGB-ի բոլոր 3 գունային մուտքերին կարող ենք հաղորդել տարբեր շիմ-ազդանշաններ 0-255
+                    միջակայքից, որը
+                    թույլ է տալիս ստանալ գրեթե բոլոր գույները:</li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

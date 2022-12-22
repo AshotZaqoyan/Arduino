@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+    <title>switch...case</title>
+</head>
+<body>
+    <h1 class="ver_c">switch...case օպերատոր</h1>
+    <p>
+        Switch օպերատորը նման է  if օպերատորին,
+         այն վերահսկում է ծրագիրը՝ նշելով այլընտրանքային կոդը, որը 
+         պետք է կատարվի տարբեր պայմաններում: Եթե ​ անհրաժեշտ 
+         է ընտրել  երկուսից ավել տարբերակներից, ապա կարող ենք մի քանի 
+         անգամ օգտագործել if ... else if կամ switch ... case 
+         հայտարարությունը:
+         <br>
+         Arduino-ում switch case  օպերատորը  թույլ է տալիս սկետչում
+          ստեղծել հարմար կոնստրուկցիա,կախված փոփոխականի արժեքից 
+          թույլ է տալիս  ծրագրում գործողությունների ճյուղավորում
+        կատարել: default (լռելյայն) օպերատորի առկայությունը 
+          պարտադիր չէ, իսկ break (ընդհատել) օպերատորի առկայությունը 
+          պարտադիր է: If… else պայմանի օպերատորի և
+           switch...case  ընտրության օպերատորի
+           օգնությամբ կառուցվում է ողջ ծրագրի  տրամաբանությունը:
+        <br>
+        Switch օպերատորը համեմատում է փոփոխականի արժեքը 
+        case օպերատորի արժեքների հետ: Երբ գտնում է 
+        case, որի արժեքը հավասար է փոփոխականի 
+        արժեքին, ապա կատարվում է ծրագրի այդ բլոկը: 
+       Օրինակ.
+       <pre>
+        int data = 2;
+
+        switch(data){
+            case 1: Serial.println("1");break;
+        
+            case 2: Serial.println("2");break;
+        
+            case 3: Serial.println("3");break;
+        }
+        
+       </pre>
+       break-ը Arduino IDE-ում օգտագործվում է հաջորդ պայմանին 
+       անցնելու համար, եթե նախորդ պայմանը
+        ճիշտ չէր: Arduino default օգտագործվում է կոդը գործարկելու 
+        համար, եթե switch-ի բոլոր պայմանները ճիշտ չեն:
+
+        <pre>
+            int data = 5;
+
+switch(data){
+    case 1: Serial.println("1"); break;
+
+    case 2: Serial.println("2"); break;
+
+    case 3: Serial.println("3"); break;
+
+    default: Serial.println("___"); break;
+}
+        </pre>
+
+        Ծրագրավորման բոլոր լեզուներն ունեն մի շարք հսկիչ հրամաններ, 
+        որոնք ապահովում են նույն կոդի բազմակի կատարում (առանց 
+        ցիկլով), համապատասխան կոդի ընտրություն (ifպայման) և ընթացիկ կոդից դուրս գալու հրահանգներ: 
+        Arduino 
+        IDE ծրագրավորման լեզուն C/C++ լեզվից փոխառել է պահանջվող 
+        հսկիչ հրամանների մեծ մասը, ուստի դրանց սինտաքսը
+        հիմնականում նույն է:
+
+
+    </p>
+    
+</body>
+</html>

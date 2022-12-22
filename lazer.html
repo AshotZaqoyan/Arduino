@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lazer</title>
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/css.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+   <heder>
+      <nav>
+         <input type="checkbox" id="check">
+         <label for="check" class="checkbtn">
+            <img src="img/menu.svg" alt="menu" class="menu_svg">
+         </label>
+         <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                  class="logo"></a></label>
+         <ul class="navul">
+            <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+            <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+            <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+            <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+         </ul>
+      </nav>
+   </heder>
+   <br><br><br><br><br><br>
+   <main>
+      <div class="div_main">
+         <h1 class="ver_c">Ինչպես միացնել լազերային մոդուլը Ardunio-ին</h1>
+         <font size="4"> Ardunio-ում լազերային մոդուլի կիրառմամբ տարբեր հետաքրքիր նախագծեր հնարավոր է իրականացնել,
+            Դիտարկենք, թե ինչպես
+            միացնել լազերային մոդուլը Ardunio-ին, անվտանգության ինչ կանոներ պետք է պահպանել
+         </font>
+            <h2 class="ver">KY-008` լազերային մոդուլին</h2>
+         <p>
+            Մոդուլի հիմնական բաղադրատարրը տարբեր լազերային լեդն է պղնձե գլանաձև սառեցման ռադիատորով(մատորների միջև
+            սարեցնելու հարմարանք):
+            Բացի դա պլատայի վրա տեղադրված են նաև պասիվ բաղադրատարեր, որոնք ապահովում են լեդի կայուն աշխարանքային ռեժիմը:
+         </p>
+  
+         <img src="img/laser.jpg" class="nkar">
+
+         <p>
+            <font size="4"> լազերային մոդուլը միացնելով Ardunio-ին, p-ով անցնում են էլեկտրոնները և տեղի է ունենում
+               լույսի ֆոտոնների ռեկոմբինացում(ֆոտոնների ճառագում միատեսակ պարամետրերով):Լազերի աշխատանքի սկզբունքը
+               հիմնված է այն հանգամանքի վրա, որ լույսի ճառագայթվող ֆոտոնները առաջացնում են կրկնակի ճառագայթում, որն
+               աճում է ձնահյուսի պես:KY-008 մոդելի ճառագումը կախված է հոսանքի հզորությունից:Թույլ հոսանքի դեպքում այն
+               աշխատում է որպես սովորական լեդ, քանի որ տեղի է ունենում միայն ինքնաբերական ֆոտոնների ճառագայթում:Երբ
+               հոսանքի հզորությունը մեծանում է, կտրուկ մեծանում է ճառագայթման հզորությունը,
+            </font>
+         </p>
+         <h2 class="ver">Լազերային մոդուլի միացումը Ardunio-ին</h2>
+         <ul>
+            <font size="4">
+               <li>Ardunio Uno/ Ardunio Nano/Ardunio Mega</li>
+               <li>KY-008 մոդուլ</li>
+               <li>լարեր՝<<պապա-մամա>> </li>
+            </font>
+         </ul>
+         <pre>
+        <font color="green">  #define</font> LASER 10 
+      
+        <font color="cyan">  void</font><font color="">  setup() {
+         <font color="F56302">   pinMode</font>(LASER,<font color="">  OUTPUT</font>); 
+          }
+          
+          <font color="cyan">  void </font><font color=""> loop</font>() {
+            <font color="green">    for</font> (<font color=""> int</font> i=0; i<=5; i++) 
+             {
+               <font color="F56302">  digitalWrite</font>(LASER, HIGH);
+                  <font color="F56302">  delay</font>(500);
+                     <font color="F56302">  digitalWrite</font>(LASER, LOW);
+                        <font color="F56302">  delay</font>(500);
+             }
+             <font color="F56302">   delay</font>(3000);
+          }
+        </pre>
+
+
+
+         <pre>
+         <font color="green"> #define</font> LASER 10 
+      
+            <font color="cyan">   void </font> <font color="green"> setup</font>() {
+               <font color="F56302">   pinMode</font>(LASER, OUTPUT);
+          }
+          
+          <font color="cyan">   void</font> <font color="">  loop</font>() {
+            <font color="green">   for</font> ( <font color=""> int</font> i=0; i<=255; i++) 
+             {
+               <font color="F56302">    analogWrite</font>(LASER, i);
+                  <font color="F56302">   delay</font>(5);
+             }
+             <font color="green">  for </font>(<font color="cyan">int</font> i=255; i>=0; i--) 
+             {
+               <font color="F56302">   analogWrite</font>(LASER, i);
+                  <font color="F56302">  delay</font>(5);
+             }
+          }
+        </pre>
+      </div>
+   </main>
+</body>
+
+</html>

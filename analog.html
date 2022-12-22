@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Անալոգ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">Arduino-ի անալոգային և թվային ելքեր</h1>
+            <p>
+                Այս դասի ընթացքում կհասկանաք, թե ինչով է տարբերվում թվային ազդանշանը անալոգայինից։ Միացնենք 2 լեդ և
+                կարգավորենք դրանց պայծառությունը։ Քննարկենք տվյալի int տիպը, պայմանի if օպերատորը և analogWrite հրամանը։
+            </p>
+            <p>
+                Անալոգային ազդանշանը ժամանակի ընթացքում անընդհատ փոփոխվում է։ Բնության մեյ բոլոր ինֆորմացիաները
+                անալոգային են՝ գծովի ալիքները, նվագալարի տատանումները և այլն։ Ի սկզբանե մարդիկ ձայնագրում էին
+                ինֆորմացիան (ձայներ, նկարներ, տեսանյութեր) անալոգային սարքերի օգնությամբ։ Սակայն անալոգային ազդանշանները
+                զգայուն են աղմուկի և արգելքի նկատմամբ
+            </p>
+            <p>
+                Թվային ազդանշանը հաղորդվում է 1 և 0 տեսքով, համակարգիչների և թվային տեղնիկայի համար դա հեշտ է
+                իրականացնել(ազդանշանի կա կամ չկա)։ Համակարգիչների օպերատիվ հիշողության համար կիրառում են կոնդեսատորներ,
+                1 լիցքավորված կոնդեսատորը 1բիթ է։
+            </p>
+            <p>
+                Համակարգիչների ի հայտ գալուց հետո անալոգային ազդանշանները սկսեցին փոխակերպել թվայինի, քանի որ անալոգային
+                ազդանշանը ձայնագրման ժամանակ ենթակա է խեղաթյուրման և փոխանցման թուլացման։
+            </p>
+            <h2 class="ver">Arduino-ի անալոգային և թվային ելքեր</h2>
+            <p>
+                Եթե անհրաժեշտ է կարգավորել ելքային լարումը, անհրաժեշտ է կիրառել այն պիները, որոնք նշված են «~» ցիմվոլով։
+                Arduino Uno-ի դեպքում՝ 3, 5, 6, 9, 10, 11։
+                Անալոգային պորտերի օգնությամբ հնարավոր է հաղորդել ցանկացած լարում՝ 0-5վարկյան, իսկ թվային ելքերը
+                հնարավոր է միայն անջատել և միացնել։ Անալոգային պորտերը կիրառում են ԼԻՄ (լայնաիմպուլսային մոդուլացիա),
+                որի օգնությամբ նմանագործում է անալոգային ազդանշանը։
+            </p>
+            <p>
+                Թվային և անալոգային ազդանշանների տարբերությունը հասկանալու համար։ Միացնում են Arduino տպասալին լեդ
+                լույս, սակայն այս անգամ անալոգային ելքին՝ ~9։ Պորտ 9-ը հնարավոր է աշղատի որպես թվային ելք։ Սակայն, եթե
+                <font color="#f56302">digitalWrite</font> ֆունկցիան փոխենք <font color="#f56302">analogWrite</font>
+                ֆունկցիայով, ապա <font color="blue">HIGH</font> և <font color="">LOW</font> արժեքների փոխարեն կարող ենք
+                տեղադրել ցանկացած թիվ 0-255 միջակայքից։
+            </p>
+            <pre>
+                       int svet = 0; // լեդի սկզբնական պայծառությունը
+                       int fade = 5; // լեդի պայծառության փոփոխման քայլը
+           
+                       void setup() {
+                           pinMode(9, OUTPUT); // используем Pin9 для операции вывода
+                       }
+           
+                       void loop() {
+           
+                           analogWrite(9, svet);
+                           svet = svet + fade;
+                           if (svet == 0 || svet == 255) {
+                               fade = -fade;
+                       }
+           
+                       delay(20); 
+                       }
+                   </pre>
+            <h2 class="ver">Կոդի մեկնաբանություն</h2>
+            <ul>
+                <li>
+                    <font color="#f56302">analogWrite</font> (pin,value) ֆունկցիա -pin` ելքի պորտ, որին հաղորդվում է
+                    ազդանշան, value` 0-255 միջակայքից արժեք, կիրառվում է լեդի պայծառությունը ղեկավարելու համար կամ
+                    էլեկտրաշարժիչի արաքգությունը փոփոխելու համար․
+                </li>
+                <li>
+                    svet փոփոխականը ունի սկզբնական 0 արժեքը, ցիկլի յուրաքանչյուր շրջափուլի ժամանակ արժեքը մեծանում է
+                    տրվա fade արժեքով։ </li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

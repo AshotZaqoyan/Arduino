@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Լեդի միացում</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">LED լույսի միացումը Arduino տպասալին</h1>
+            <p> Լույսի թարթումը ամենապարզ ծրագիրն է։ Միկրոկոնտրոլերների հետ աշղատանք սկսելու համար։
+                Լեդը դա կիսաղարդչային տարր է, որը ծառայում է ցուցադրման և լուսավորության համար։
+                Եթե լեդը սղալ միացնենք, ապա մշտական հոսանք չի անցնելու , և չի լուսավորվի։
+                Բացի դա, հնարավոր է, որ լեդը շարքից դուրս գա։ Անոդը (լեդի երկար ոտքը) միանում է +ին․
+                (նկար 1)
+            </p>
+            <img src="img/led1.JPG" align="center" hspace="1" class="nkar">
+            <p>
+                Վերը նշված պարզ օրինակում ցույց է տրվում, թե ինչպես Arduino տպասալի օգնությամբ լույսը կթարթի։Սկզբի համար
+                պարզագույն սխեմա կհավաքենք պլատայի վրա, միացնելով լեդը Arduino-ի թվային ելքին (պլատայի մուտքերն ու
+                ելքերն անվանում են նաև (pin)):
+            </p>
+            <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+            <p>
+            <ul>
+                <font size="4">
+                    <li>Arduino Uno/ Arduino nNano/ Arduino Mega</il>
+                    <li>bredbouard</li>
+                    <li>լեդեր և ռեզիստոր(220օմ)</li>
+                    <li>լարեր «պապա-պապա»</li>
+                </font>
+            </ul>
+            <img src="img/led.jpg" width="600" height="300" class="nkar">
+            <p>
+                Ինչի համար է անհրաժեշտ լեդը Arduino-ին միացնել ռեզիստորի օգնությա՞մբ։ Լեդում կա բյուրեղ, որը «վախենում
+                է» բարձր հոսանքից։ Ռեզիստորը սահմանափակում է ընթացիկ ուժը(Ամպեր), որպեսզի լեդը չայրվի։
+            </p>
+            <pre> <font size="4">
+             <font color=blue> void</font><font color=#27d652>setup</font> () {
+                 <font color=#f56302>   pinMode</font>(13, <font color=blue>OUTPUT</font>); // պին 13 ելք
+                 }
+                 
+                 <font color=blue>void</font><font color=#27d652>loop</font> () {
+                 <font color=#f56302>  digitalWrite</font>(13,<font color=blue>HIGH</font> ); // միանում է լեդը
+                 
+                 <font color=#f56302> delay</font>(1000); // սպասել 1 վրկ
+                 
+                 <font color=#f56302> digitalWrite</font>(13,<font color=blue>LOW</font> ); // անջատվում է լեդը
+                 
+                 <font color=#f56302> delay</font>(1000); //սպասել 1 վրկ
+                 }
+                 
+         
+         </font>
+         </pre>
+            <h2 class="ver">Կոդի մեկնաբանություն</h2>
+            <p>
+                1.setup()-ում գրված կոդը կատարվում է մեկ անգամ։ Այն անհրաժեշտ է միկրոկոնտրոլերի norm-ի և տարրեր
+                կարգավորումների համար։
+            </p>
+            <p>
+                2.setup()-ի կատարումից հետո գործակվում է loop()-ը, որը կատարվում և անվերջ ցիկլում։սա կիրառում ենք,
+                որպեսզի լեդը անընդհատ թարթի։
+            </p>
+            <p>3.Setup() և loop() մեթոդները պետք է բոլոր ծրագրերում լինեն, եթե նույնիսկ դրանք դատարկ են։ </p>
+        </div>
+    </main>
+</body>
+
+</html>

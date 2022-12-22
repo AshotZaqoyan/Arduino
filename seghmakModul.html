@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Սեղմակով մոդուլ</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <h1 align="center"><font color="blue">Ինչպես միացնել սեղմակով մոդուլը Arduino-ին</font></h1>
+    <img src="img/modul-knopka.jpg" class="nkar">
+
+    <p>KY-004-ը  մոդուլ է Arduino Nano միկրոկառավարիչի համար: Մոդուլն ունի սովորաբար բաց կոնտակտներ, 
+        այսինքն՝ կոնտակտները փակվում են, երբ կոճակը սեղմվում է, և սենսորի ելքում հայտնվում է ցածր 
+        մակարդակի լարում:  է «S» ելքային կոնտակտի և Arduino-ի «5V» պինի  միջև եռակցված 10 կՕմ դիմադրություն: </p>
+    
+
+    <br>Անհաժեշտ էլեմենտներ 
+
+<img src="img/modul-knopka2.jpg" class="nkar" >
+<br>
+<table border="15" align="center" class="table">
+<tr>
+    <td>KY-004 </td>
+<td><font class="textTable">Arduino Uno</font></td>
+<td>Arduino nano</td>
+<td>Arduino Mega</td>
+</tr>
+<tr><td>-</td>
+<td>GND</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+
+<tr><td>+</td>
+<td>5Վ</td>
+<td>5Վ</td>
+<td>5Վ</td>
+</tr>
+
+<tr><td>S</td>
+<td>A1</td>
+<td>A1</td>
+<td>A1</td>
+</tr>
+
+</table>
+<br> Մոդուլը կարող է միացված լինել ինչպես ընդհանուր նշանակության թվային պինին, այնպես էլ անալոգային սենսորների մուտքային պինին: KY-004-ը թույլ է տալիս կոճակը միացնել Arduino-ին առանց breadboard օգտագործելու, հակառակ դեպքում ոչ մի տարբերություն չկա սովորական տակտային կոճակը միկրոկառավարիչին միացնելուց:</br>
+
+<pre><font size="4">
+<font color="blue"> boolean</font> buttonWasUp =<font color="blue"> true</font>;
+<font color="blue">  boolean </font>buttonIsUp  = <font color="blue">false;</font>
+ <font color="blue">  boolean </font>ledEnabled  = <font color="blue">false</font>;
+    
+  <font color="blue">  void</font> <font color="green"> setup</font>() {
+      <font color="#f56302">pinMode</font>(13,<font color="blue"> OUTPUT</font>);
+      <font color="#f56302">pinMode</font>(A1, <font color="blue">INPUT_PULLUP</font>);
+    }
+    
+    <font color="blue"> void</font>  <font color="green">loop</font>() {
+      buttonIsUp =<font color="#f56302"> digitalRead</font>(A1);
+     <font color="green" >if</font> (buttonWasUp && !buttonIsUp) {
+      <font color="#f56302">  delay</font>(10);
+        buttonIsUp = <font color="#f56302">digitalRead</font>(A1);
+    
+      <font color="green">  if </font>(!buttonIsUp) {
+          ledEnabled = !ledEnabled;
+         <font color="#f56302"> digitalWrite</font>(13, ledEnabled);
+        }
+      }
+    
+      
+      buttonWasUp = buttonIsUp;
+    }
+    </font></pre>
+<br> Կոդի բացատրություն </br>
+
+<br>1.	կոճակի մուտքագրումը (pin A1) կազմաձևված է որպես INPUT_PULLUP. Երբ կոճակը սեղմված է, մուտքագրումը կլինի տրամաբանական «զրոյական» (false) արժեքը,  իսկ buttonIsUp փոփոխականում արժեքը կլինի «true»  , երբ կոճակը  սեղմված չի:
+ 
+</br>
+<br>2.	digitalWrite-ին չի տրվում HIGH կամ LOW արժեքը, այլ օգտագործվում է ledEnabled փոփոխականը: Կախված նրանից, թե որ արժեքն է հաշվարկվել false կամ true, լուսադիոդը կմիանա կամ կանջատվի:
+</br>
+
+
+</body>
+</html>

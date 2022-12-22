@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ձայնի սենսոր</title>
+	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/css.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+	<heder>
+		<nav>
+			<input type="checkbox" id="check">
+			<label for="check" class="checkbtn">
+				<img src="img/menu.svg" alt="menu" class="menu_svg">
+			</label>
+			<label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo" class="logo"></a></label>
+			<ul class="navul">
+				<li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+				<li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+				<li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+				<li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+			</ul>
+		</nav>
+	</heder>
+	<br><br><br><br><br><br>
+	<main> 
+		<div class="div_main">
+            <h1 class="ver_c">Ինչպես միացնել ձայնի սենսորը Arduino-ին</h1>
+            <img src="img/shema.jpg" class="nkar">
+            <p>
+                    Սենսորը բաղկացած է տախտակից (տես ստորև նկարը), որի վրա տեղադրված են Arduino Nano- ին միանալու պորտերը , ձայնի ուժեղացուցիչ, կտրող ռեզիստոր և էլեկտրոնային խոսափող, որը զգայուն է բոլոր ուղղություններով եկող ձայնի նկատմամբ: Զգայունության կարգավորիչը (փոփոխական դիմադրություն) թույլ է տալիս կարգավորել խոսափողի զգայունությունը և ընտրել, թե ինչ աղմուկի մակարդակից կգործարկի սենսորը:
+                </p>
+                <img src="img/datchik-zvuka.jpg" class="nkar">
+                <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+                <ul>
+                    <li>Arduino Uno / Arduino Nano / Arduino Mega</li>
+                    <li>breadboard</li>
+                    <li>ձայնային ցուցիչ KY-037 (խոսափող)</li>
+                    <li>1 լեդ և 1 220օհմ դիմադրություն</li>
+                    <li>լարեր «պապա-պապա» և «պապա-մամա»</li>
+                    </ul>
+                    <p>
+                            Սենսորը սնուցվում է 5 Վ-ից, ելքը (OUT, S կամ AO) միացված է Arduino Uno-ի ցանկացած անալոգային մուտքին, իսկ DO ելքը՝ Pin 2-ին, եթե ցանկանում եք Arduino-ի վրա թվային ազդանշան ստանալ միկրոֆոնի սենսորից: 
+                    </p>
+           <img src="img/datchik-zvuka2.jpg" class="nkar">    
+           <pre><font size="4">
+                boolean statuslamp; 
+                
+                <font color="blue">void</font><font color="green"> setup</font>() {
+                   <font color="#f56302">pinMode</font>(12,<font color="blue">OUTPUT</font>); 
+                   <font color="#f56302">pinMode</font>(A0,<font color="blue">INPUT</font>); 
+                   statuslamp=false; 
+                   <font color="#f56302">Serial.begin</font>(9600); 
+                }
+                
+                <font color="blue">void</font><font color="green"> loop</font>() {
+                   <font color="#f56302">Serial.println</font> (<font color="#f56302">analogRead</font>(A0)); 
+                  
+                   if(<font color="#f56302">analogRead</font>(A0)>60) {
+                      statuslamp=!statuslamp; 
+                     <font color="#f56302"> digitalWrite</font>(12,statuslamp); 
+                      <font color="#f56302">delay</font>(20); 
+                   }
+            </font></pre>
+            <h2 class="ver">Կոդի բացատրություն</h2>
+            <ol>
+                <li> Boolean տվյալի տիպը օգտագործվում է C++ ծրագրավորման լեզվում՝  բուլյան արժեքներ (true/false) հայտարարելու համար</li>
+                <li>2. տողում statuslamp=!statuslamp;մենք փոխում ենք լամպի կարգավիճակը ծափահարելիս.</li>
+                <li>3. տողում if(analogRead(A0)>60), 60արժեքի փոխարեն  կարող եք փոխարինել ցանկացած արժեք: </li>
+                </ol>
+		</div>
+	</main>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM35</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">Ինչպես միացնել Lm35 սենսորը Arduino-ին</h1>
+            <p>
+                LM35 ջերմության սենսորը հնարավոր է կիրառել շատ պարզ նախագծերում։ Դիտարկենք օրինակ ջերմության սենսորի
+                կիրառումը,
+                որը համակարգչի կամ LCD մօնիտորի վրա կատարածի ջերմաստիճանը։
+            </p>
+            <h2 class="ver">LM35 սենսորի նկարագրություն</h2>
+            <ul>
+                <li>սնուցում՝ 2,7-5,5վոլտ</li>
+                <li>ջերմաստիճանի միջակայք՝ 10<sup>o</sup>C-125<sup>o</sup>C</li>
+                <li>հնարավոր սխալ՝ 2աստիճանը</li>
+                <li>անհրաժեշտ հոսանք՝ մկԱ</li>
+            </ul>
+            <p>
+                LM35-ի փոխարեն հնարավոր է կիրառել ցանկացած սենսոր, որը նախատեսված է ջերմաստիճանի ստուգման համար, օրինակ`
+                TMP35,
+                LM35, TMP, LM335: Սենսորի տեսքը նման է ռեզիստորի, ուստի հեշտ է այն շփոթել, ուստի անհրաժեշտ է ուշադիր
+                կարդալ
+                ռադիոէլեմենտի վրա կատարած նշումները․
+            </p>
+            <img src="img/lm35.jpg" class="nkar">
+            <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+            <ul>
+                <li>Arduino Uno/ Arduino Nano/ Arduino Mega 2560</li>
+                <li>breadboard</li>
+                <li>LM35 սենսոր</li>
+                <li>լեդ լույս և ռեզիստոր՝ 220օմ</li>
+                <li>լարեր «պապա-պապա»</li>
+            </ul>
+            <img src="img/LM35Arduino.jpg" class="nkar">
+            <p>
+                LM35 սենսորը անալոգային է, հետևաբր որպես ելքային արժեք ստանում ենք 0 կամ 1, հետևաբար սենսորը պետք է
+                միացնենք
+                Arduino տպասալի A0-A5 պիներին։<br>
+                Միացումները կատարելուց հետո պետք է ներբեռնել սկետչը։
+            <pre>
+        int temp; // "temp" փոփոխական
+        
+        <font color=#blue>void </font>  <font color=#27d652>setup</font>() {
+        <font color=#f56302>pinMode</font>(A0, <font color=blue>INPUT</font>); //  LM35 սենսորը միացնում ենք  A0 անալոգային մուտքին
+          Serial.begin(9600);     
+        }
+        
+        <font color=blue>void</font> <font color=#27d652>loop</font>() {
+          temp = <font color="#f56302">digitalRead</font>(A0); // փոփոխականի արժեքը գտնվում է  0 - 1023 միջակայքում
+          Serial.println(temp);       // արժեքը արտածում ենք էկրանին
+          <font color=#f56302> delay</font>(1000);          // սպասում
+        }
+        </pre>
+            </p>
+            <h3 class="ver">Կոդի մեկնաբանություն</h3>
+            <ul>
+                <li>Առաջին տողում սահմանում ենք temp փոփոխականը</li>
+                <li>int տվյալի տիպը ցույց է տալիս, որը temp-ի արժեքը միայն ամբողջ թիվ կարող է լինել</li>
+            </ul>
+            <h2>LM35 սենսորի տրամաչափում</h2>
+            <p>
+                Անալոգային սենսորի տրամաչափումը անհրաժեշտ է, որպեսսզի արդյունքը ստանանք<sup>o</sup>C-ով, ինչպես դա տրված
+                է
+                միջավայրի խոնավությունն ու ջերմաստիճանը որոշող DHT11 թվային սենսորի վրա։<br>
+                LM35 սենսորի տրամաչափումը որոշելու համար անհրաժեշտ է ծրագրում փոփոխություն կատարել։
+
+            <pre>
+                int temp;    // "temp" փոփոխական
+                float grad; // "grad" փոփոխական
+        
+               <font color="blue"> void</font><font color="green"> setup</font>() {
+                    <font color="#f56302">pinMode</font>(A0, <font color="blue">INPUT</font>); 
+                    <font color="#f56302">Serial.begin</font>(9600);     
+                }
+        
+                <font color="blue">void</font><font color="green"> loop</font>() {
+                    temp = <font color="#f56302">analogRead</font>(A0); 
+                    grad = ( temp/1023.0 )*5.0*1000/10; 
+                    <font color="#f56302">Serial.println</font>(grad);     //էկրանին արտածում ենք ջերմությունը         
+              
+        
+                <font color="#f56302">delay</font>(100); // ставим небольшую задержку
+                }
+                </pre>
+            </p>
+            <h2 class="ver">Կոդի մեկնաբանություն</h2>
+            <ul>
+                <li>float տվյալի տիպը նաղատեսված է լողացող կետով արժեքներ պահպանելու համար։</li>
+                <li>grad=(temp/1023.0)*5.0*1000/10` ճշգրտությամբ տրամաչափում է սենսորի հաղորդած տվյալները։</li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

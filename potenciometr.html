@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Պոտենցիոմետր</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+                <h1 class="ver_c">Պոտենցիոմետր աշխատանքի սկզբունքը</h1>
+            <font size="4 ">
+                <p>Պոտենցիոմետր օգնությամբ էլեկտրական շղթայում փոթողվում է դիմադրությունը <b>0-ից մինչ 10կօմ:</b>
+                    <br>
+                    <b> Atmega </b> միկրոկոնտրոլերը պարունակում է բանալոգային փոխակերպիչ <b>(ԱԹՓ), այն 10 բիթ է</b>ինչը
+                    թույլ է տալիս
+                    ստանալ<b> 0-1023</b> միջակայքից ցանկացախ արժեք: Սանդխակը փոքր արժեքների բաժանելը թույլ է տալիս մեծ
+                    ճշգրտությամբ
+                    ստանալ ցանկացած ֆիզիկական մեծության արժեք:Որպեսզի հաշվենք անալոգային մութքերից ստացած արժեքը
+                    կիռարվում էլեկտրական
+                    <font color="#f56302"><b>analogRead</b></font> ֆունկցիան:
+            </font>
+            </p>
+            <h2 class="ver">Անրաժեշտ էլեմնտներ</h2>
+            <ul>
+                </font>
+                <font size="4"> 
+                        <li>Ardunio Uno/Ardunio Nano/Ardunio/Mega</li>
+                        <li>breadboard</li>
+                        <li>Պոտենցիոմետր</li>
+                        <li>1 լեդ լույս, ռեզիստոր 220օմ</li>
+                        <li>լարեր <<Պապա-պապա>> </li>
+                    
+            </ul>
+            </font>
+            <p>
+                <font size="4">Պոտենցիոմետրի օգնությամբ կարող ենք սահուն փոփոխել լեդ լույսի պայծառությունը, միացնելով
+                    9-րդ պինին:
+            </p>
+            </font>
+
+            <img src="">
+            <pre>
+
+               <font color="green"> #define</font> LED_PIN 9 //փոփոխականի սահմանում լեդի համար
+               <font color="green"> #define</font> POT_PIN A0  //փոփոխականի սահմանում պոտենցիոմետրի համար
+            
+               <font color="blue"> void</font><font color="green"> setup</font>()
+                {
+              
+                <font color="#f56302">pinMode</font>(LED_PIN,<font color="blue"> OUTPUT</font>);
+               <font color="#f56302"> pinMode</font>(POT_PIN,<font color="blue"> INPUT</font>);
+                <font color="#f56302">Serial.begin</font>(9600);
+                }
+            
+                <font color="blue">void</font><font color="green"> loop</font>()
+                {
+              
+                int rotation, brightness;  
+            
+             
+                rotation = <font color="#f56302">analogRead</font>(POT_PIN);
+                brightness = rotation / 4;
+            
+               
+                <font color="#f56302">analogWrite</font>(LED_PIN, brightness);
+              
+                <font color="#f56302">Serial.println</font>(rotation);
+                <font color="#f56302">delay</font>(1000);
+            }
+                </pre>
+            <h2 class="ver">Կոդի մեկնաբանություն</h2>
+            <p>
+                <font size="4">
+                    <b> 1. <i> #define</b></i> օգնությամբ ցույց ենք տալիս, որ <b>9-րդ</b> պինի անունը <b> LED-PIN
+                        է,</b>իսկ անալոգային ելք <b>AO` POT-PIN
+                        <br>
+                        2.</b> լոկալ փոփոխական <b>rotation</b> ստանում է <b>0-1023</b> միջակայքից թվային արժեքներ
+                    <br>
+                    <b>3. brightness</b> փոփոխականը հավասար է <b>rotation/4</b> և գտնվում է <b>0-255</b> միջակայքից:
+            </p>
+            </font>
+            <img src="img/servoPotencometr.png" class="nkar">
+            <pre>
+                    <font color="green">#include</font> <<font color="#f56302"> Servo</font>.h > // գրադարանի ներմուծում
+                    Servo servo;            // "servo" տիպի փոփոխականի հայտարարում
+                        
+                    <font color="blue">void</font><font color="green"> setup</font>() {
+                        servo.<font color="#f56302">attach</font>(10);        // սերվոն միացվում է պին 10-ին
+                        <font color="#f56302">pinMode</font>(A1,<font color="blue"> INPUT</font>); // A1-ին միացվում է պոտենցիոմետրը 
+                    }
+                        
+                    <font color="blue">void</font><font color="green"> loop</font>() {
+                        int val = <font color="#f56302">analogRead</font>,/(A1);         
+                        val = map(val, 0, 1023, 0, 180); //  val նոր արժեք է հաղորդվում նշված միջակայքից
+                        servo.<font color="#f56302">write</font>(val);                  
+                        }
+                </pre>
+            <h2 class="ver">Կոդի մեկնաբանություն</h2>
+            </font>
+            <p>
+                <font size=4"">
+                    <b> map</b>ֆունկցիայի օգնությամբ <b> val</b> փոփոխականի արժեքը <b>0-1023</b>միջակայքից նոր միջակայք
+                    է վերցնում ՝ <b>0-180:</b>
+                </font>
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>

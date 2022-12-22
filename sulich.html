@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buzzer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">Պիեզադինամիկի միացումը arduino տպասալին</h1>
+            <p>
+                Պիեզադինամիկը arduino-ին միացնելու մի քանի եղանակ կա:Պիեզադինամիկը լայն կիրառում ունի, այն կիրառում ենք
+                տարբեր սարքերում՝ զարթուցիչ, հեռախոս, խաղալիք և այլ տեղնիկա:
+            </p>
+            <p>
+                Ակտիվ ձայնային ազդանշանըինքնուրյուն է ձայն գեներացնում, իր գեներատորը կիրառելով ինչի համար անհրաժեշտ է
+                անընդհատ լարում:
+            </p>
+            <p>
+                Պասիվ ձայնային ազդանշանը պահանջում է շիմ ազդանշան, որպեսզի ձայն գեներացնի։
+            </p>
+            <h2 class="ver">Անհրաժեշտ էլեմենտեր</h2>
+            <ul>
+                <li>Arduino Uno/ Arduino Nano/ Arduino Mega 2560</li>
+                <li>breadbourd</li>
+                <li>arduino buzzer</li>
+                <li>Լարեր «պապա-պապա»</li>
+            </ul>
+            <img src="img/sulich.jpeg" height="350px" class="nkar">
+            <table>
+
+                <tr>
+                    <td>
+                        <pre>  <font size="4">
+                 <font color="blue">void</font><font color=#27d652>  setup</font>() {
+                    <font color=#f56302>pinMode</font>(10,<font color=blue>  OUTPUT</font>); // 10-րդ պինը հայտարարում ենք որպես ելք
+                     }
+                     
+                     <font color=blue>void</font><font color=#27d652>  loop</font>() {
+                     
+                        <font color=#f56302> tone</font> (10, 600); // միացնում ենք buzzer-ը 600 Հց
+                     
+                        <font color=#f56302> delay</font>(1000); // սպասել 1 վրկ
+                     
+                        <font color=#f56302> tone</font>(10, 900); // միացնում ենք buzzer-ը 600 Հց
+                     
+                        <font color=#f56302> delay</font>(1000); // սպասել 1 վրկ
+                     
+                        <font color=#f56302> noTone</font>(10); // անաջատում ենք buzzer-ը
+                     
+                        <font color=#f56302> delay</font>(1000); // սպասել 1 վրկ
+                     
+                     }</font>
+                 </pre>
+                    </td>
+                    <td>Կամ </td>
+                
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <pre>
+                        
+                           <font color="cyan"> void</font><font color="green"> setup</font> (){
+                              <font color="#F56302"> pinMode</font>(10,<font color="cyan">OUTPUT </font>)
+                           }
+                        <font color="cyan">   void</font> <font color="green">loop</font>(){
+                          <font color="green">  for </font>(<font color="cyan">int</font> x=0; x  < 500;x++){
+                            <font color="F56302"> tone(10,x);</font>
+                            <font color="F56302"> delay(1);  </font>
+                          }
+                          <font color="green">  for</font>(<font color="cyan">int</font> x=500;x>0; x-){
+                           <font color=F56302"">  tone</font>(10,x);
+                            <font color="F56302">  delay</font> (1);   
+
+                           
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+            <h2 class="ver">Կոդի մեկնաբանություն</h2>
+
+            <p>Այն բանից հետո, երբ bazzer-ը միացնում ենք Arduino-ին։ Անհրաժեշտ է սկետչը ներբեռնել միկրոկոնտրոլի մեջ։
+                Ձայնի գործակումը իրականացվում է tone() ֆունկցիայի օգնությամբ, փակագծերի մեջ նշվում է պինի համարը և ձայնի
+                հաճախականությունը։ Ձայնը անջատելու համար կիրառվում է noTone() ֆունկցիան
+            </p>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Սեղմակ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">Ինչպես միացնել սեղմակը Arduino-ին</h1>
+            <p>
+                <font size="4">
+                    Սեղմակները Arduino-ին միացնելու ժամանակ առաջացած գլխավոր խնդիրը «շփման զնգոցն» է։
+                    Էությունը կայանում է նրանում, որ մեխանիկական կոնտակտները տակատային սեղմակները երբեք չեն փակվում և
+                    փակվում են միայն ակնթարթ։
+                    Միլիվարկյանների ընթացքում տեղի է ունենում կոնտակտների կարճ միացում։</font>
+            </p>
+            <img src="img/drebezg-knopki.jpg" width="600" height="300" class="nkar">
+            <p>
+                <font size="4">
+                    Arduino տպասալի վրա այդ խնդրից խուսափելու համար կիրառվում են տարբեր էլեկտրական սխեմաներ
+                    կոնդեսատորներով։ Սակայն ավելի հեշտ է խնդրին ծրագրային լուծում տալ, դրա համար կիրառվում է սպասումը մի
+                    քանի միլիվարկյան, դրա համար կիրառվում է Bounce2.h գրադարանը։
+            </p>
+            </font>
+            <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+            <ul>
+                <li>Arduino Uno/ Arduino Nano/ Arduino Mega2560</li>
+                <li>breadbouard</li>
+                <li>1 լեդ</li>
+                <li>ռեզիստոր 220օմ և 10կմմ</li>
+                <li>տակտային սեղմակ</li>
+                <li>լարեր «պապա-պապա»«պապա-մամա»</li>
+            </ul>
+            <img src="img/knopka.jpeg" width="600" height="300" class="nkar">
+            <pre><font size="4">
+                    <font color="blue"> void </font><font color="green">setup</font>() {
+                        <font color="#f56302">pinMode</font>(13,<font color="blue">OUTPUT</font>); //հայտարարում ենք պին 13 ելք
+                        <font color="#f56302">   pinMode</font>(2,<font color="blue">INPUT</font> ); // հայտարարում ենք պին 2 մուտք
+                     }
+                     
+                     <font color="blue">void </font><font color="green"> loop</font> () {
+                        <font color="black"> if</font> (<font color="#f56302">digitalRead</font>(2)<font color="blue"> == HIGH</font>) // եթե պին 2 5վոլտ հոսանք է   
+                        {
+                            <font color="#f56302">  digitalWrite</font>(13,<font color="blue">HIGH</font> ); // լեդը միանում է
+                        }
+                     
+                        if (<font color="#f56302">digitalRead</font>(2) <font color="blue">== LOW</font>) // եթե պին 2-ում  հոսանք չկա
+                        {
+                            <font color="#f56302">   digitalWrite</font>(13,<font color="blue">LOW</font> ); // լեդը անջատվում է
+                        }
+                     }</font>
+                     <h2 class="ver">Կոդի մեկնաբանություն</h2>
+                  </pre>
+            <p>
+                <font size="4">
+                    Կիրառելով տպասալի թվային մուտքերը և digitalRead հրամանը՝ տվյալները հաշվելու համար։ Ուշադրություն
+                    դարձրեք, որ սեղմակի չսեղմված վիճակում Pin2-ի տրամաբանական արժեքը«0»է։ Սեղմակի օգնությամբ միացնենք և
+                    անջատենք ներկառուցված լեդը, որը միացված է թվային 13-րդ թվին
+            </p>
+            <p>
+                Հնարավոր է նաև անալոգային մուտքին։ միակ տարբերությունն այն է, որ միացվում է միկրոկոնտրոլերի անալոգային
+                պինին։
+            </p>
+            </font>
+        </div>
+    </main>
+</body>
+
+</html>

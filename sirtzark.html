@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Սրտի զարկ</title>
+	<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/css.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body >
+	<heder>
+		<nav>
+			<input type="checkbox" id="check">
+			<label for="check" class="checkbtn">
+				<img src="img/menu.svg" alt="menu" class="menu_svg">
+			</label>
+			<label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo" class="logo"></a></label>
+			<ul class="navul">
+				<li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+				<li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+				<li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+				<li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+			</ul>
+		</nav>
+	</heder>
+	<br><br><br><br><br><br>
+	<main> 
+		<div class="div_main">
+      <h1 class="ver_c">Ինչպես միացնել շարժի սենսորը Arduino-ին</h1>
+      <img src="img/pir-sensor-arduino.jpg" class="nkar">
+      <p>
+              Այս հոդվածում  կքննարկենք շարժման սենսորային սարքը, Arduino UNO-ին դրա միացման դիագրամը և դրա հիման վրա կհավաքենք ավտոմատ լուսային անջատիչ:
+          </p>
+          <img src="img/linza-frenelya.jpg" class="nkar">
+          <p>
+                  PIR սենսորային մոդուլը բաղկացած է պիրոէլեկտրական տարրից՝ պլաստիկ ոսպնյակի տակ՝ գլանաձև կտոր, որի կենտրոնում ուղղանկյուն բյուրեղ է, որը ընկալում է ինֆրակարմիր ճառագայթման մակարդակը և անցկացնում  ​​իր միջով: IR-ը Arduino-ին միացնելիս մենք արդեն պարզել ենք, որ բոլոր օբյեկտներն ունեն ինֆրակարմիր ճառագայթում, և որքան բարձր է ջերմաստիճանը, այնքան ավելի ինտենսիվ է ճառագայթումը:<br>
+                  PIR շարժման սենսորները դիզայնով գրեթե նույնական են: Arduino-ի համար PIR սենսորների զգայունության տիրույթը մինչև 6 մետր է, դիտման անկյունը՝ 110° x 70°: Հզորությունը 5 վոլտ է, իսկ թվային ելքը 0 է, երբ շարժում չկա և 1, երբ շարժում կա: Զգացող տարրերը տեղադրվում են հերմետիկ պատյանում, որը պաշտպանում է խոնավությունից և ջերմաստիճանի ծայրահեղություններից:
+              </p>
+              <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+              <ul>
+                  <li>Arduino Uno / Arduino Nano / Arduino Mega;</li>
+                  <li>PIR շարժման ցուցիչ HC-SR501;</li>
+                  <li>breadboard</li>
+                  <li>1 լեդ և 220 Օմ դիմադրություն</li>
+                  <li>լարեր «պապա-պապա», «պապա-մամա»</li>
+                  </ul>
+                  <img src="img/shema-podklucheniya.jpg" class="nkar">
+                  <p>
+                          Մեկ ելքը գնում է GND, երկրորդը գնում է 5 վոլտ սնուցման (VCC), իսկ երրորդ ելքը (OUT) դուրս է բերում թվային ազդանշան PIR սենսորից:
+                      </p>
+                      <pre><font size="4">
+                             <font color="green"> #define</font> PIR 2
+                              <font color="green">#define</font> LED 12
+                              
+                              <font color="blue">void</font> <font color="green">setup</font>() {
+                                <font color="#f56302">pinMode</font>(PIR,<font color="blue"> INPUT</font>);
+                                <font color="#f56302">pinMode</font>(LED,<font color="blue">OUTPUT</font>);
+                              }
+                              
+                              <font color="blue">void</font><font color="green"> loop</font>() {
+                                 int pirVal = <font color="#f56302">digitalRead</font>(PIR);
+                              
+                                 if (pirVal == <font color="blue">HIGH</font>) {
+                                   <font color="#f56302"> digitalWrite</font>(LED, <font color="blue">HIGH</font>);
+                                    <font color="#f56302">delay</font>(2000);
+                                 }
+                              
+                                 else {
+                                    <font color="#f56302">digitalWrite</font>(LED,<font color="blue">LOW</font>);
+                                    <font color="#f56302">delay</font>(2000);
+                                 }
+                              } 
+                          </font></pre>
+                          <h2 class="ver">PIR շարժման սենսորով լամպի նախագիծ</h2>
+                          <pre><font size="4">
+                                 <font color="green"> #define</font> LED  3 
+                                 <font color="green"> #define</font> PIR  2 
+                                  
+                                 <font color="blue"> unsigned long</font> counttime; 
+                                  
+                                 <font color="blue"> void</font><font color="green"> setup</font>() {
+                                    <font color="#f56302">pinMode</font>(LED, <font color="blue">OUTPUT</font>);
+                                     <font color="#f56302">pinMode</font>(PIR,<font color="blue"> INPUT</font>);
+                                  }
+                                  
+                                  <font color="blue">void</font><font color="green"> loop</font>() {
+                                     
+                                     if (<font color="#f56302">digitalRead</font>(PIR) == <font color="blue">HIGH</font>) {
+                                       <font color="#f56302"> digitalWrite</font>(LED, <font color="blue">HIGH</font>);
+                                     }
+                                  
+                                     
+                                     counttime =<font color="#f56302"> millis</font>();
+                                  
+                                     if (<font color="#f56302">digitalRead</font>(PIR) == <font color="blue">LOW</font> && <font color="#f56302">millis</font>() - counttime > 60000) {
+                                  
+                                     
+                                     <font color="#f56302">digitalWrite</font>(LED,<font color="blue"> LOW</font>);
+                                     }
+                                  }
+                              </font></pre>
+                              <h2 class="ver">Կոդի մեկնաբանություն</h2>
+                              <ol>
+  <li>counttime = millis();ֆունկցիայի օգնությամբ սկսում ենք հետհաշվարկը։ Եվ ի տարբերություն Arduino delay ֆունկցիայի , որն ամբողջությամբ ընդհատում է ծրագիրը, այս ֆունկցիայի դեպքում միկրոկառավարիչը կարող է շարունակել մնացած հաշվարկները նախագծում:</li>
+  <li>մենք փոխել ենք լամպի անջատման ժամը։ Եթե ​​առաջին օրինակում լեդն անջատվել է սենսորից LOW ազդանշանից անմիջապես հետո: Հիմա լամպը անջատելուց առաջ տալիս ենք 1 րոպե</li>
+                                  </ol>
+		</div>
+	</main>
+</body>
+</html>

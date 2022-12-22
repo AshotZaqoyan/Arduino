@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ծրագրավորման դասեր</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/larduino.css">
+</head>
+
+<body>
+    <heder class="heder">
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="noactiv">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="activ" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="#" >Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+        <h1 align="center" class="ver_c">Arduino ծրագրավորման լեզու C++</h1>
+        <p>Լեզուն կարելի է բաժանել չորս բաժնի՝ օպերատորներ, տվյալներ, ֆունկցիաներ և գրադարաններ։</p>
+        <table class="styled-table">
+            <tbody>
+            <th width="25rem" align="left">Arduino լեզու</th>
+            <th width="25rem" align="left">Օրինակ</th>
+            <th width="40%" align="left">Նկարագրություն</th>
+            <tr>
+                <th colspan="3" align="center">Օպերատորներ</th>
+            </tr>
+            <tr>
+                <td>setup()</td>
+                <td>
+                    <pre>void setup()<br>{pinMode(3, INPUT);<br>}</pre>
+                </td>
+
+                <td>
+                    Ֆունկցիան օգտագործվում է փոփոխականները սկզբնարժեքավորելու համար, տպասալի վրա
+                    ելքի գործառնական ռեժիմները որոշելու և այլն: Ֆունկցիան թողարկվում է
+                    միայն մեկ անգամ՝ միկրոկառավարիչին յուրաքանչյուր միացումից հետո:<br>
+                    <a href="voidLoopVoidSetup.html" target="_blank">Կիրառման օրինակ</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>loop()</td>
+                <td>
+                    <pre>void loop()<br>{<br>digitalWrite(3, HIGH);<br>delay(1000);<br>digitalWrite(3, LOW);<br>delay(1000);<br>}
+                </pre>
+                </td>
+                <td>Loop ֆունկցիան պտտվում է՝ թույլ տալով ծրագրին կատարել
+                    հաշվարկներ և արձագանքել դրանց: Setup() և loop()
+                    ֆունկցիաները պետք է առկա լինեն յուրաքանչյուր սկետչում,
+                    նույնիսկ եթե այդ օպերատորները ծրագրում չեն օգտագործվում:
+                    <br>
+                    <a href="voidLoopVoidSetup.html" target="_blank">Կիրառման օրինակ</a>
+                </td>
+
+            </tr>
+            <th colspan="3" align="center">Ղեկավարող օպերատորներ</th>
+
+            <tr>
+                <td>if</td>
+                <td>
+                    <pre>
+…
+if (x > 100) digitalWrite(3, HIGH);
+if (x < 100) digitalWrite(3, LOW);
+…
+                </pre>
+                </td>
+
+                <td>if օպերատորը օգտագործվում է համեմատական ​​օպերատորների հետ միասին
+                    (==, !=, <,>) ստուգելու համար, արդյոք պայմանը բավարարված է:
+                        Օրինակ, եթե x փոփոխականի արժեքը 100-ից մեծ է, ապա 13-րդ պինին միացված լուսադիոդը
+                        միանում է, եթե այն ավելի քիչ է՝ լեդն անջատվում է:
+                        <br>
+                        <a href="if...else.html" target="_blank">Կիրառման օրինակ</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>if...else</td>
+                <td>
+                    <pre>
+…
+if (x > 100) digitalWrite(3, HIGH);
+else digitalWrite(3, LOW);
+…
+                </pre>
+                </td>
+                <td>else օպերատորը թույլ է տալիս ստուգել այլ
+                    պայման, քան նշված է if-ում, փոխադարձ մի քանի
+                    բացառող ստուգումներ կատարելու համար: Եթե
+                    ​​ստուգումներից ոչ մեկը ճշմարիտ չէ, ապա կատարվում է
+                    else բլոկը:
+                    <br>
+                    <a href="if...else.html" target="_blank">Կիրառման օրինակ</a>
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>switch…case</td>
+                <td>
+                    <pre>
+…
+switch (x)
+{
+case 1: digitalWrite(3, HIGH);
+case 2: digitalWrite(3, LOW);
+case 3: break;
+default: digitalWrite(4, HIGH);
+}
+…
+                </pre>
+                </td>
+                <td>if օպերատորի նմանությամբ, switch օպերատորը ղեկավարում է ծրագիրը,
+                    որոնք կկատարվեն տարբեր պայմաններում: Break հրամանի օգնությամբ դուրս է
+                    գալիս օպերատորից: default-ը կկատարվի, եթե ոչ մի այլ տարբերակ ընտրված չէ:
+                    <br>
+                    <a href="switch...case.html" target="_blank">Կիրառման օրինակ</a>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>for</td>
+                <td>
+                    <pre>
+void setup()
+{
+pinMode(3, OUTPUT);
+}
+void loop()
+{
+for (int i=0; i <= 255; i++){
+analogWrite(3, i);
+delay(10);
+}
+}
+                </pre>
+                </td>
+                <td>For կոնստրուկցիան օգտագործվում է ձևավոր
+                    փակագծերում գրված կոդի հատվածը կրկնելու
+                    համար: Օրինակ, լուսադիոդի սահուն մարում: For
+                    ցիկլը բաղկացած է երեք մասից՝ for
+                    (սկզբնարժեքավորում; պայման; հավելում)՝ սկզբնարժեքավորումը
+                    կատարվում է մեկ անգամ, այնուհետև ստուգվում է
+                    պայմանը, եթե պայմանը ճշմարիտ է, ապա
+                    ավելացումը կատարվում է: Ցիկլը կրկնվում է այնքան
+                    ժամանակ, քանի դեռ պայմանը ճիշտ է:
+                    <br>
+                    <a href="for while.html" target="_blank">Կիրառման օրինակ</a>
+                </td>
+
+
+
+
+            </tr>
+
+
+            <tr>
+                <td>while</td>
+                <td>
+                    <pre>
+void loop()
+{
+while (x < 10)
+{
+x = x + 1;
+Serial.println(x);
+delay(200);
+}
+}
+                </pre>
+                </td>
+                <td>while օպերատորը օգտագործվում է որպես ցիկլ,
+                    որը կաշխատի այնքան ժամանակ, քանի դեռ փակագծերում դրված
+                    պայմանը ճշմարիտ է: Օրինակում while ցիկլը
+                    կկրկնի փակագծերում գրված կոդը անվերջ այնքան ժամանակ, քանի դեռ
+                    x-ը 10-ից փոքր է:
+                    <br>
+                    <a href="for while.html" target="_blank">Կիրառման օրինակ</a>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>do…while</td>
+                <td>
+                    <pre>
+void loop()
+{
+do
+{
+x = x + 1;
+delay(100);
+Serial.println(x);
+}
+while (x < 10);
+delay(900);
+}
+                </pre>
+                </td>
+                <td>Do...while ցիկլը աշխատում է այնպես,
+                    ինչպես while ցիկլը: Սակայն, ի տարբերություն while ցիկլի,
+                    do... while ցիկլը գոնե մեկ անգամ կատարվում է, անկախ պայմանի
+                    ճիշտ կամ սխալ լինելուց: Վերոնշյալ օրինակում 10-ից մեծ x-ի
+                    դեպքում գումարման գործողությունը կշարունակվի, բայց
+                    1000մվրկ դադարով:
+                    <br>
+                    <a href="for while.html" target="_blank">Կիրառման օրինակ</a>
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td>
+                    <pre>
+break
+continue
+                </pre>
+                </td>
+                <td>
+                    <pre>
+switch (x)
+{
+case 1: digitalWrite(3, HIGH);
+case 2: digitalWrite(3, LOW);
+case 3: break;
+case 4: continue;
+default: digitalWrite(4, HIGH);
+}
+                </pre>
+                </td>
+
+                <td>
+                    Break-ն օգտագործվում է switch, do, for և while
+                    ցիկլերից դուրս գալու համար՝ չսպասելով ցիկլի
+                    ավարտին:
+                    continue օպերատորը բաց է թողնում ցիկլի ընթացիկ քայլում
+                    մնացած օպերատորները:
+                </td>
+            </tr>
+            <td colspan="3" align="center">Գրելաձև</td>
+
+            <tr>
+                <td>;(կետ ստորակետ)</td>
+
+                <td>
+                    <pre>
+…
+digitalWrite(3, HIGH);
+…
+                </pre>
+                </td>
+                <td>Կետ ստորակետն օգտագործվում է տողի ավարտը նշելու
+                    համար: Տողի վերջում դրված ստորակետը, կոմպիլյացիայի ժամանակի, հանգեցնում
+                    է սխալի:</td>
+
+            </tr>
+
+            <tr>
+                <td>{}(ձևավոր փակագծեր)</td>
+
+                <td>
+                    <pre>
+void setup()
+{
+pinMode(3, INPUT);
+}
+                </pre>
+                </td>
+                <td>Բացող՝ «{», փակագծին պետք է հաջորդի «}» փակող փակագիծը:
+                    Չզուգակցված փակագծերը կարող են հանգեցնել թաքնված և
+                    անհասկանալի սխալների։</td>
+
+            </tr>
+
+            <tr>
+                <td>// (մեկնաբանություն)</td>
+                <td>x = 5; // մեկնաբանություն</td>
+                <td>Մեկնաբանություններն օգտագործվում են ձեզ հիշեցնելու, թե
+                    ինչպես է աշխատում ծրագիրը: Դրանք անտեսվում են
+                    կոմպիլյատորի կողմից և
+                    միկրոկոնտրոլերի հիշողության մեջ տեղ չի գրավում։</td>
+
+            </tr>
+
+
+            <tr>
+                <td>#define</td>
+                <td>#define ledPin 3</td>
+                <td> #define հրահանգը թույլ է տալիս անուն տալ հաստատունին:
+                    Հրահանգը զուտ հարմարության և ծրագրի ընթեռնելիությունը
+                    բարելավելու համար է:</td>
+
+            </tr>
+
+            <tr>
+                <td>#include</td>
+                <td>
+                    <pre>
+// սերվոյի գրադարան
+#include <Servo.h>
+                    </pre>
+                </td>
+                <td>
+                    #include հրահանգն օգտագործվում է կոդում երրորդ
+                    կողմի գրադարանները ներառելու համար: Հիշեք, որ
+                    #include and #define հրահանգների վերջում կետ
+                    ստորակետ չի դրվում:
+                    <br>
+                    <a href="Servo.html">Կրառման օրինակ</a>
+                </td>
+
+            </tr>
+            <td colspan="3" align="center">Տվյալների տիպեր</td>
+
+            <tr>
+                <td>boolean</td>
+                <td>boolean val = false</td>
+                <td>Բուլյան տիպով հայտարարված փոփոխականը կարող է ընդունել 2 արժեք՝ true կամ false:
+                    Յուրաքանչյուր բուլյան փոփոխական միկրոկոնտրոլերի հիշողության
+                    մեջ զբաղեցնում է <b>մեկ բայթ:</b>
+                    <br>
+                    <a href="seghmakModul.html">Կիրառման օրինակ</a>
+                </td>
+
+
+            </tr>
+
+            <tr>
+                <td>char</td>
+                <td>
+                    <pre>
+// երկու արժեքներն էլ հավասարազոր են
+char val = ‘A’;
+char val = ’65’;
+                    </pre>
+                </td>
+                <td>Char տվյալների տիպը պահպանում է նիշերի արժեքը և հիշողության մեջ
+                    զբաղեցնում է <b>1 բայթ :</b> Նիշերը գրվում են
+                    միայնակ չակերտների մեջ, օրինակ՝ 'A', հիշողության մեջ պահպանվում է
+                    նիշի թվային արժեքը:</td>
+
+
+            </tr>
+
+            <tr>
+                <td>byte</td>
+                <td>byte val = 255;</td>
+                <td> byte-ը իր մեջ պահպանում է ամբողջ թվեր՝ 0-ից 255 միջակայքից
+                    : Այն հիշողության մեջ
+                    զբաղեցնում է <b>1 բայթ:</b></td>
+
+            </tr>
+
+            <tr>
+                <td>int</td>
+                <td>int val = 32767;</td>
+                <td>Ամբողջ տիպի թվերի պահպանման տվյալների տեսակը,
+                    հիշողության մեջ զբաղեցնում է <b>2 բայթ </b>տարածք: Int տվյալի տիպը
+                    պահում է 16-բիթանոց ամբողջ թվային արժեքներ՝ -32768-ից
+                    32767 միջակայքից:
+                    <br>
+                    <a href="potenciometr.html">Կիրառման օրինակ</a>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>unsigned int</td>
+                <td>unsigned int val = 65535;</td>
+                <td>Unsigned int տվյալի տիպը կարող է պահել <b>երկու բայթ</b> ծավալով
+                    արժեքներ: Բայց բացասական թվերի փոխարեն այն պահպանում է
+                    միայն դրական արժեքները՝ 0-ից մինչև 65535 միջակայքից:
+                    <br>
+                    <a href="fotorezistor.html">Կիրառման օրինակ</a>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>float</td>
+                <td>float val = 25.1547;</td>
+                <td>float տվյալի տիպը օգտագործվում է տասնորդական
+                    թվերը պահելու համար: Լողացող կետով թվերը թույլ են տալիս
+                    ավելի ճշգրիտ նկարագրել անալոգային արժեքները, քան ամբողջ
+                    թվերը: Կոտորակային թվերի ճշգրտությունը 6-7 նիշ է. սա
+                    թվանշանների ընդհանուր թիվն է, այլ ոչ թե տասնորդական կետից
+                    հետո թվանշանների թիվը:
+                    <br>
+                    <a href="DHT11.html">Կիրառման օրինակ</a>
+                </td>
+
+            </tr>
+
+        </tbody>
+        </table>
+    </div>
+    </main>
+</body>
+
+</html>

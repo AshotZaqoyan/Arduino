@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+    <title>if տրամաբանական օպերատոր</title>
+</head>
+<body>
+    <h1 class="ver_c">Arduino-ում if... else տրամաբանական օպերատոր</h1>
+    <p>
+        Arduino-ում if կոնստրուկցիան ստուգում է պայմանը, եթե պայմանը ճիշտ է,
+        ապա կատարվում է ձևավոր փակագծերի մեջ գրված կոդի հատվածը:
+        Առանց ձևավոր փակագծերի կատարվում է միայն կոդի մեկ տողը, որը հաջորդում
+        է պայմանի օպերատորին: Խորհուրդ է տրվում մշտապես կիրառել
+        ձևավոր փակագծեր, քանի որ այդ պարագայում ծրագրում սխալներ թույլ չի
+        տրվելու:
+    
+
+    </p>
+    <h2 class="ver_c">Arduino-ում if...else պայմանի նկարագրություն</h2>
+    <p>
+        Arduino-ում if-ն օգտագործվում է համեմատական ​​օպերատորների հետ՝
+         ստուգելու, թե արդյոք պայմանները ճշմարիտ են:
+        Ձևավոր փակագծերը տրամաբանորեն խմբավորում են
+           բազմաթիվ տողեր մեկ բլոկի մեջ: Ներքոհիշյալ օրինակում  
+           ստուգվում է,  արդյոք water փոփոխականի  արժեքը մեծ է տրված 
+           թվից.
+        <pre>
+            if (water > 100) { digitalWrite (12, HIGH ); digitalWrite (10, LOW ); }
+
+            if (water < 100) { digitalWrite (12, LOW ); digitalWrite (10, HIGH ); }
+        </pre>
+
+        If..else կոնստրուկցիան մեծ վերահսկողություն է ապահովում
+         ծրագրի վրա, քան մեկ if օպերատորը: Եվ դա թույլ է տալիս 
+         սահմանել գործողություններ ոչ միայն այն դեպքի համար, երբ 
+         արտահայտությունը ճիշտ է, այլ նաև հակառակ դեպքի համար 
+         (երբ արտահայտության արժեքը false է).    
+
+         <pre>
+            if (water > 100) { digitalWrite(12, HIGH); digitalWrite(10, LOW); }
+
+            else { digitalWrite(12, LOW); digitalWrite(10, HIGH); }
+         </pre>
+
+         Arduino IDE-ում else-ին  կարող է հաջորդել մեկ այլ if՝ ստեղծելով 
+         ստուգումների մի ամբողջ շղթա: Պայմանների ստուգումները 
+         կկատարվեն մեկը մյուսի հետևից, մինչև չհանդիպեն իրական 
+         արտահայտության: Օրինակ
+         <pre>
+            if (water > 100) { digitalWrite (12, HIGH ); digitalWrite (10, LOW ); }
+
+            else if (water > 200) { digitalWrite (12, LOW ); digitalWrite (10, HIGH ); }
+        
+            else if (water > 300) { digitalWrite (12, HIGH ); digitalWrite (10, HIGH ); }
+        
+            else { digitalWrite (12, LOW ); digitalWrite (10, LOW ); }
+         </pre>
+
+         Եթե ​ճիշտ արտահայտություն չգտնվի, ապա կկատարվի 
+         ամենավերջին else բլոկը (եթե այն գոյություն ունի):  else if 
+         կոնստրուկցիան կարող է լինել առանց վերջնական else բլոկի և հակառակը: 
+         <br>
+         If else օպերատորի  կիրառման օրինակ է <a href="fotorezistor.html">ֆոտոռեզիստորի միացումը:</a>
+         
+
+    </p>
+
+    <h2 class="ver_c">Հավասարության օպերատորներ, պայմանների հերթականություն</h2>
+    <pre>
+        x == y (x-ը հավասար է y-ին)
+        x != y (x-ը հավասար չէ  y-ին)
+        x < y (x-ը փոքր է  y-ից)
+        x > y (x-ը մեծ է y-ից)
+        x <= y (x-ը փոքր է կամ հավասար y-ին)
+        x >= y (x-ը մեծ է կամ հավասար  y-ին)
+    </pre>
+    <p>
+        Չպետք է շփոթել ' = ' հավասարության նշանը ' == ' համեմատության 
+        օպերատորի հետ : If-ի մեջ հավասար նշանի (=) օգտագործումը 
+        կարող է այլ արդյունք տալ`  ծրագիրի գործարկման ժամանակ:
+        Օրինակ, եթե (y = 40) նույնը չէ, ինչ (y==100) . 
+        Հավասար նշանը վերագրման օպերատոր է, որը փոփոխականի 
+        արժեքը սահմանում է 40 , այլ ոչ թե ստուգում է փոփոխականի 
+        արժեքը 100:
+
+
+    </p>
+
+    <h2 class="ver_c">Տրամաբանական օպերատորներ (not և or)</h2>
+    <p>
+        Մի քանի տրամաբանական արժեքներ կապելու համար օգտագործվում են տրամաբանական օպերատորներ.
+        <pre>
+            <b>! ( ոչ )</b> տրամաբանական <b>ՈՉ,</b> ժխտում
+            <b>&& ( և ) </b>տրամաբանական <b>ԵՎ</b>
+            <b>|| ( կամ )</b> տրամաբանական <b>ԿԱՄ</b>
+        </pre>
+
+        <pre>
+            if (water > 100 && value > 100) { digitalWrite(12, HIGH); digitalWrite(10, LOW); }
+
+            else { digitalWrite(12, LOW); digitalWrite(10, HIGH); }
+        </pre>
+        Պայմանների հերթականությունը կարևոր դեր է խաղում ծածկագրի 
+        օպտիմալացման և կոդն ավելի արագ դարձնելու գործում։ Փաստն
+         այն է, որ տրամաբանական արտահայտությունները/արժեքները 
+         ստուգվում են ձախից աջ, և եթե առաջին ստուգումը դարձնում է 
+         արտահայտությունը false, ապա պայմանների հետագա ստուգումը
+          դադարում է: Օրինակ, եթե water > 100 պայմանը false է, ապա 
+          հաջորդ արտահայտություննը՝  value > 100 այլևս չի փորձարկվում:
+
+    </p>
+    
+</body>
+</html>

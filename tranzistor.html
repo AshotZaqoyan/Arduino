@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Տրանզիստոր</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo"
+                        class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">Ինչպես միացնել տրանզիստորը Arduino-ին</h1>
+            <p>
+                Տրանզիստոր են անվանում կիսահաղորդչային այն սարքը, որը նախատեսված է էլեկտրական տատանումների ուժեղացման և
+                գեներացման համար։ Տրանզիստորները հանդիպում են բանալիներ։ Կրկնաբևեռ տրանզիստորները կարող են ղեկավարել
+                էլեկտրական շղթան մինչև 50վ, իսկ դաշտային ռեզիստորները կարող են ղեկավարել մինչև 100վ ունեցող սարքեր։
+            </p>
+            <img src="img/s9015.jpg" class="nkar">
+            <p>
+                Տրանզիստորի փակաղակի վրա լարման բացակայության դեպքում, թողարկող և կոլեկտորային անցումը գտնվում է
+                հավասարակշռության մեջ, հոսանքը դրանց միջով չի անցնում և հավասար է 0-ի։Այդպիսով, երկբևեռ տրանզիստորին
+                հաղորդելով 5վ, կարող ենք միացնել էլեկտրական շղթան մինչև 50վոլտ։ Այսօր նմանատիպ կիսահաղորդիչ առկա է գրեթե
+                բոլոր սարքավորումներով (հեռաղոս, համակարգիչ և այլն)։
+                <br>
+                Տրանզիստորները միկրոսխեմաները հիմնական տարրերից են։ Տրանզիստորը էլեկտրական էլեմենտ է կիսահաղորդչային
+                նյութից կազմված, սովորաբար այն ունի 3 ելք, որը թույլ է տալիս մուտքային ազդանշանի միջոցով ղեկավարել բարձր
+                լարմամբ հոսանքը։
+            </p>
+            <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+            <ul>
+                <li>Arduino Uno/ Arduino Nano/ Arduino Mega2560</li>
+                <li>breadboard</li>
+                <li>1 Կրկնաբևեռ</li>
+                <li>1 շարժիչ</li>
+                <li>2 ռեզիստոր</li>
+                <li>լարեր՝ «պապա-պապա» և «պապա-մամա»</li>
+            </ul>
+            <p>
+                Հնարավոր չի շարժիչը միացնել Arduino-ին թվային կամ անալոգային պիներին և աշխատացնել։ Դա պայմանավորված է
+                այն հանգամանքով, որ Arduino-ի պիները 40օմԱ ավելի մեծ արժեք չեն կարող հաղորդել։ Այդիսկ պատճառով
+                էլեկտրական շղթան ղեկավարելու համար անհրաժեշտ է բարձր լարմամբ տրանզիստոր կամ Motor Shield L293D:
+            </p>
+            <img src="img/motora-k-arduino.jpg" class="nkar">
+            <p>
+                Եթե կոդը ուսումնասիրենք, ապա կտեսնենք, որ նույն կերպ է միացվում լեդ լույսը Arduino-ին։ Միկրոպրոցեսորի
+                համար էական չի թե ինչ է միացված pin13-ին՝ լեդ, տրանզիստոր։<br>
+                Ուշադրություն դարձրեք այն հանգամանքի վրա, որ Ռ1 ռեզիստորը միանում է -ին, իսկ Ռ2-ը պաշտպանում է
+                միկրոկոնտրոլերը գերլարումից։ Շարժիչը Arduino-ին միացնելու մեկ այլ տարբերակ։ Միացումներին ավելացնում ենք
+                ֆոտոռեզիստոր և կոդը ձևափոխում այնպես, որ սենյակի լուսավորությունից կկախված միացնելու շարժիչը։ Կարելի է
+                կիրառել նաև ջրի սենսորըկամ որևէ այլ սենսոր։
+            </p>
+            <pre>
+
+           <font color="green"> #define</font> sensor A0
+            unsigned int value = 0;
+         
+            <font color="blue">void</font><font color="green"> setup</font>() {
+                <font color="#f56302">pinMode</font>(11, <font cdolor="blue">OUTPUT</font>);
+            }
+         
+            <font color="#f56302">void</font><font color="green"> loop</font>() {
+           
+                value = <font color="#F56302">analogRead,</font>(sensor);
+                if (value<500) <font color="#f56302">digitalWrite</font>(9,<font color="blue">HIGH</font>);
+                if (value>500) <font color="#f56302">digitalWrite</font>(9, <font color="blue">LOW</font>);
+                }
+            </pre>
+            <h2 class="ver">Կոդի մեկնաբանություն</h2>
+            <ul>
+                <li>Առաջին տողում A0-ին միացված պինին sensor անունով ենք հայտարարել։</li>
+                <li>unsigned int տվյալի տիպը ցույց է տալիս, որ value-ի արժեքը միայն դրական թիվ կարող է լինել, որի
+                    սկզբնական արժեքը 0 է։ </li>
+                <li>if պայմանի օպերատորը թույլ է տալիս սահմանել գործողության պայմանը բավարարելու դեպքում, իսկ else-ը
+                    բլոկը կկատարվի պայմանը չբավարարելու դեպքում։</li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>

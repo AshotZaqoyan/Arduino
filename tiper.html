@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Հիշողություն</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo" class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">Միկրոկոնտրոլեռի Հիշողության տեսակները
+            </h1>
+            <p>
+                <font color="#28170B">
+                    <ul>
+                        <li>
+                            <font class="ver" size="6"> <b>FLASH</b></font>
+                        </li> կամ <font color="Green"> <i> <b>ПЗУ `</b></i> </font>
+                        <font size="4">մշտապես հիշող սարք, որում պահպանվում է ծրագրային կոդը: Ֆունկցիաները,
+                            օպերացիաները,
+                            գործողությունները, բոլորը այդտեղ են և չեն փոփոխվում որոնման ժամանակ իհարկե հնարավոր է, բայց
+                            պետք չի:
+                            Բեռնման ժամանակ <strong><i> bootloader</i> </strong>տվյալները գրանցում է հիշողության այս
+                            սարքում:
+                            <li>
+                                <font class="ver" size="6"> <b> SRAM</b></font>
+                            </li> կամ <font color="Green"><i><b>ОЗУ `</b></i></font> օպերատիվ հիշող սարք, օպերատիվ
+                            հիշողություն:
+                            Նրանում պահպանվում են փոփոխականները, որոնց արժեքը կարող է փոփոխվել աշխատանքի ընթացքում, այս
+                            հիշողությանը մենք ազատ հասանելիություն ունենք և ակտիվորեն դրանից կարող ենք օգտվել:
+                            Միկրոկոնտռոլեռի
+                            պերեզագրուզկայից հետո հիշողությունը ամբողջությամբ մաքրվում է:
+                            <br>
+                            <font class="ver" size="6">
+                                <li> <b>EEPROM՝</b>
+                            </font>
+                            </li>անգլ.<b><i></i> Electrically Erasable Programmable Read-Only Memory`</i></b> Էլեկտրական
+                            վերածրագրավորվող <i> ROM,</i> հիշողություն, որը նախատեսված է կիրառողի համար արժեքները
+                            պահպանելու
+                            համար, որոնք հնարավոր է փոփոխել, սակայն դրանք չեն ջնջվում պերեզագրուզկայից հետո:
+                            Մեր աշխատանքի ընթացքում շատ կիրառելու ենք <strong>SRAM</strong> հիշողությունը:
+                        </font>
+                    </ul>
+            </p>
+            <h2 class="ver">Երկուական Համակարգ</h2>
+            </font>
+            <p>
+                <font size="4">Թվային աշխարհում, որին վերաբերում է նաև միկրոկոնտռոլեռը, ինֆորմացիան պահպանվում է ,
+                    փոխակերպվում
+                    է և հաղորդվում է թվերի տեսքով, այսինքն <b> 1-երի և 0-ների</b> տեսքով: Հիշողության նվազագույն
+                    վանդակը, որը
+                    կարող է հիշել <b>0</b> կամ <b>1</b> , կոչվում է ԲԻԹ<b>(bit)</b>: Այդ կերպ մենք անցում ենք կատարում
+                    երկուական
+                    համակարգին՝</font>
+            </p>
+
+            <table border="15">
+                <tr>
+                    <td width="150">2-ական</td>
+                    <td width="150">10-ական</td>
+                    <td rowspan="12" width="100%"><img src="img/1.jpg" width="100%"></td>
+                </tr>
+                <tr>
+                    <td> 0000</td>
+                    <td>0</td>
+
+                </tr>
+
+                <td>0001</td>
+                <td>1</td>
+                </tr>
+                <tr>
+                    <td>0010</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>0011</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>0100</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>0101 </td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>0110</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>0111</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>1000</td>
+                    <td>8</td>
+
+                </tr>
+                <tr>
+                    <td>1001</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>10000</td>
+                    <td>16</td>
+                </tr>
+                </td>
+                </tr>
+
+            </table><br><br><br><br>
+            <img src="img/2.jpg" width="100%">
+            <p>
+                <font size="4">Հաշվարկը կատարվում է 2-ի ինչ որ աստիճանով:
+                    Թիվը տասական համակարգով
+                    ստանալու համար, որոնք կարող ենք կոդավորված
+                    լինեն բիթերով, պետք է 2-ը բարձրացնենք
+                    բիթերի քանակով՝
+            </p>
+            </font>
+            <table>
+                <tr>
+                    <td><b>5բիթ-2*2*2*2*2-32</b></td>
+                </tr>
+                <tr>
+                    <td><b>6բիթ- 2*2*2*2*2*2-64</b></td>
+                </tr>
+                <tr>
+                    <td><b>7բիթ- 2*2*2*2*2*2*2-128</b></td>
+                </tr>
+                <tr>
+                    <td><b>8բիթ-2*2*2*2*2*2*2*2-256</b></td>
+                </tr>
+                <tr>
+                    <td><b>9բիթ-2*2*2*2*2*2*2*2*2*-512</b></td>
+                </tr>
+                <tr>
+                    <td><b>10բիթ-2*2*2*2*2*2*2*2*2*2-1024</b></td>
+                </tr>
+            </table>
+            <p>
+                <font size="4">Այսպես շարունակ: Պետք է հիշել,
+                    որ ծրագրավորման մեջ
+                    հաշվարկը սկսվում է 0-ից,
+                    այսինքն 5 բիթով կարող ենք կոդավորել
+                    <b>10-ական</b> համակարգի թվեր <b>0-31 8 բիթով` 0-255, 10 բիթով՝ 0-1023 </b>
+                    : Սա
+                    պետք է մշտապես հիշել, ընթացքում այն շատ կարևոր
+                    դեր կարող է կատարել:
+                    Հաջորդ մեծությունը՝ <b><i> ԲԱՅԹ (byte)ն է</i></b>,
+                    որը բաղկացած է <b>8 բիթից:</b>
+                    8բիթ է նաև սիմվոլների աղյուսակը, որը կոչվում է <b>ASCII</b>:
+                </font>
+            </p>
+            <ul>
+                <font size="4">
+                    <li><b>1ԿԲ-1024բայթ</b></li>
+                    <li><b>1ՄԲ-1024բայթ</b></li>
+                    <li><b>1ԳԲ-1024Մբայթ</b></li>
+                </font>
+            </ul>
+            <p>
+                <font size="4">Արդուինոն ընդունում է <i> 4</i> համակարգեր՝ <b><i>2-ական, 8-ական, 10-ական</i></b>:
+                    Ընդամենը պետք
+                    է իմանալ, որ <b>16-ական</b> համակարգում ունի <b>16 շարք, որոնցից առաջին 10-ում գրվցում են 0-9 թվերը,
+                        իսկ
+                        մնացածը՝ լատինական այբուբենի տեռը՝ a-f` a,b,c,d,e,f:</b>
+                    <b>10-ական</b> համակարգում ամեն ինչ ավելի հեշտ է թիվը գրվում է այնպես, ինչպես, որ կա:
+                    <b> 2-ական(Binary)</b> համակարգը ունի <b>0b կամ B</b> <b>(օրինակ 2-ական համակարգում 101-ը կլինի
+                        0b101 կամ
+                        B101)</b>,<b> 8-ական համակարգ</b> <b>(Octal) ունի 0 /զրո/</b> պրեֆիքս, օրինակ <b>012,
+                        16-ական</b>
+                    համակարգը<b>(hexadecimal)</b>ունի <strong>0x</strong> պրեֆիքս <b>FF19-ը</b> կգրվի <b>0xFF19</b>
+                    16-ական համակարգի գլխավոր ֆիշկան կայանում է նրանում, որ որ երկար <b>10-ական</b> համակարգի թվերը
+                    հնարավոր է
+                    գրել կարճ, դրա մասին խոսք չի կարող լինել, որբ խոսում ենք գույների երանգների թվային արժեքների մասին:
+                </font>
+            </p>
+            <table Border="1">
+                <tr>
+                    <td>Հիմնական</td>
+                    <td>Նաղդիր </td>
+                    <td>Օրինակ</td>
+                    <td>Յուրահատկություն</td>
+                </tr>
+                <tr>
+                    <td>2 Երկուական</td>
+                    <td>B կամ 0b</td>
+                    <td>B1101001</td>
+                    <td>թվեր 0 և 1</td>
+                </tr>
+                <tr>
+                    <td> 8 ութական </td>
+                    <td>0 զրո</td>
+                    <td>0175</td>
+                    <td>թվեր 0-7</td>
+                </tr>
+                <tr>
+                    <td>10 տասական</td>
+                    <td>ոչ</td>
+                    <td>100500</td>
+                    <td>թվեր 0-9</td>
+                </tr>
+                <tr>
+                    <td>16 տասնվեցական</td>
+                    <td>0x զրո x</td>
+                    <td>0xFF21A</td>
+                    <td>թվեր 0-9 տառեր A-F</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>

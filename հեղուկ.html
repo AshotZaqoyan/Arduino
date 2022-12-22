@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>հեղուկ տվիչ</title>
+</head>
+<body>
+    <h1 align="center"><font color="blue">Ինչպես միացնել հեղուկի տվիչը Arduino-ին</font></h1>
+    <img src="img/waterSensor.jpg" class="nkar">
+    <p>
+            Անալոգային սենսորի աշխատանքային լարումը 5 վ է: Ելքային լարումը (տվիչի ցուցմունքը) կախված է հեղուկի 
+            մեջ սենսորի ընկղման աստիճանից և լարման փոխանցման գործակիցի վրա ազդող պարամետրերից, օրինակ՝ 
+            հեղուկի հաղորդունակությունից։ Այս տվիչը լայնորեն կիրառվում է ավտոմատացման համակարգերում և խելացի
+             տների մշակման մեջ:
+        </p>
+        <img src="img/Water-sensor.jpg" class="nkar">
+        <p>
+                Նկարում տեսնում եք, որ  հեղուկի մակարդակի տպիչն ունի երեք կոնտակտ: Աջ կոնտակտը (-) միանում է GND-ին, միջինը՝ 5վ սնուցմանը, իսկ ձախը՝ անալոգային մուտքւն՝ օրինակ A0-ին: երբ հեղուկի տվիչը չոր է, ապա մուտքային արժեքը 0 է, որքան շատ տվիչը ընկղմվի հեղուկի մեջ, այնքան մեծ կլինեն նրա հաղորդած տվյալները(0-1023):
+            </p>
+  <h3><font color="blue">Անհրաժեշտ էլեմենտներ</font></h3>          
+  <ul>
+<li>Arduino Uno / Arduino Nano / Arduino Mega</li>
+<li>breadboard</li>
+<li>ջրի տվիչ</li>
+<li>1 լեդ և 220 Օմ դիմադրություն</li>
+<li>լարեր «պապա-պապա» և «պապա-մամա»:</li>
+    </ul>
+    <p>
+            Բացեք Arduino IDE ծրագիրը և կտեսնեք<font color="blue"> void</font><font color="green"> setup</font>()և  void loop() մեթոդները: Նախ, եկեք սահմանենք water  անունով փոփոխական  ՝ օգտագործելով  int տվյալի տիպը: Մենք կօգտագործենք փոփոխականը տվյալների հիշողության մեջ պահելու և ջրի սենսորից ստացված արժեքը վերագրելու համար:<br>
+           <font color="blue"> Void</font><font color="green"> setup</font>() մեթոդում մենք նշում ենք անալոգային պորտի աշխատանքի ռեժիմը մուտքագրելով <font color="#f56302"> pinMode</font>(AO,<font color="blue">INPUT</font>)և միացնում ենք պորտի մոնիտորը՝ <font color="#f56302">Serial.begin</font>(9600): Այնուհետև, <font color="blue">void</font> <font color="green">loop</font>() մեթոդի օգնությամբ   ստանում ենք արժեքը անալոգային պորտից՝ օգտագործելով  water = <font color="#f56302">analogRead</font>(A0); հրամանը և փոխանցում ենք արժեքը Arduino IDE:
+        </p>
+        <pre><font size="4">
+                Int water   
+                
+               <font color="blue"> void</font>  <font color="green">setup</font> () {
+                    <font color="#f56302">pinMode</font> (A0, <font color="blue">INPUT</font> );  // միացրեք սենսորը A0 -ին
+                   <font color="#f56302">Serial . begin</font> (9600);  // միացնել պորտի մոնիտորը
+                }
+                
+               <font color="blue"> Void</font><font color="green"> loop</font> () {
+                   water= <font color="#f56302">analogRead</font> (A0); // «water» փոփոխականի արժեքը  տատանվում է 0-1023
+                
+                  <font color="#f56302"> Serial . println</font> (ջուր); // ցուցադրել սենսորի արժեքը մոնիտորիn
+                   <font color="#f56302">delay</font> (1000);           // մեկ վայրկյան ուշացում 
+                }  
+            </font>    </pre>
+            <h3><font color="blue">Ջրի տվիչի և լեդի միացում Arduino-ին</font></h3>
+            <pre><font size="4">
+                    Int water;
+                    
+                    <font color="blue">void</font>  <font color="green">setup</font> () 
+                    {
+                      <font color="#f56302">pinMode</font> (12, <font color="blue">OUTPUT</font> ); // PIN 12-ը լեդի համար կլինի ելքը  
+                     <font color="#f56302">pinMode</font> (A0, <font color="blue">INPUT</font> );  
+                      <font color="#f56302">Serial . begin</font> (9600);  
+                    }
+                    
+                   <font color="blue"> void</font> <font color="green"> loop</font> () 
+                    {
+                      water = <font color="#f56302">analogRead</font> (A0); 
+                    
+                        if (water > 100) { <font color="#f56302">digitalWrite</font> (12, <font color="blue">HIGH</font> ); } // միացնել  լուսադիոդը 
+                        if (water < 100) { <font color="#f56302">digitalWrite</font> (12, <font color="blue">LOW</font> ); }   // անջատել լուսադիոդը
+                    
+                     <font color="#f56302"> Serial . println</font> (ջուր); // ցուցադրել սենսորի արժեքը մոնիտորին 
+                     <font color="#f56302"> delay </font>(1000);           // մեկ վայրկյան ուշացում 
+                    }
+                </font></pre>
+  <h3><font color="blue">Կոդի բացատրություն</font></h3>
+  <ol>
+        <li> if պայմանը թույլ է տալիս սահմանել գործողություն, եթե պայմանը ճշմարիտ է.</li>
+        <li> void loop ()-ի մեջ օգտագործում ենք  if  պայմանը՝  լեդը միանում է  water > 100 պայմանի դեպքում և անջատվուկ water < 100 արժեքի դեպքում:</li>
+  </ol>
+</body>
+</html>

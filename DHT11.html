@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+    <title>DHT11</title>
+</head>
+<body>
+    <h1 class="ver_c">Ինչպես միացնել DHT11 կամ DHT12</h1>
+    <img src="img/dht11.jpg" class="nkar">
+    <p>
+        DHT11-ը թվային սենսոր է, որը բաղկացած է թերմիստորից և 
+         խոնավության սենսորից: 
+        DHT11-ն ունի հետևյալ բնութագրերը՝ ստանում է 
+        3,5-5 Վ հոսանք, ջերմաստիճանի որոշում՝ 0-ից 50 
+        աստիճան, 2 աստիճան ճշգրտությամբ, խոնավության 
+        որոշում՝ 20%-ից  95%, 5% ճշգրտությամբ։
+
+
+
+    </p>
+    <img src="img/DHT112.jpg" class="nkar">
+    <p>
+        DHT11 մոդուլը բաղկացած է երեք պիներից և միացվում է հետևյալ 
+        սխեմային համաձայն. 
+    <pre>
+        G - Միացրեք GND
+        V - Միացրեք +5V 
+        S - Միացեք թվային պինի ( օրինակ, Pin2)
+    </pre>
+    <b>Թերմիստորը</b> ջերմային դիմադրություն է, որի դիմադրությունը փոխվում
+     է ջերմաստիճանից կախված, այսինքն՝ ջերմաստիճանի բարձրացումը 
+     հանգեցնում է նրա դիմադրության անկմանը: Հիմնականում 
+     թերմիստորը դիմադրության ջերմաչափ է, որը պատրաստված է 
+      մետաղների խառը օքսիդներից: Այն կարող է օգտագործվել տարբեր միջավայրերում 
+      ջերմաստիճանի ավտոմատ չափման համար:
+
+    <b>Խոնավություն չափող սենսորը</b>   կոնդենսատոր է, 
+    որը պարունակում է հաղորդիչներ՝ պղնձե թիթեղներից: Այս կոնդենսատորը
+     տեղադրված է կնքված պատյանում, որի վերևում
+     կա խոնավություն կլանող շերտ: Երբ ջրի մասնիկները հարվածում են 
+     այս շերտին, նրա դիէլեկտրական հաստատունը փոխվում է, ինչը 
+     հանգեցնում է կոնդենսատորի հզորության փոփոխության:
+    </p>
+
+    <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+    <ul>
+        <li>Arduino Uno / Arduino Nano / Arduino Mega;</li>
+        <li>DHT11 / DHT12 սենսոր</li>
+        <li>breadboard</li>
+        <li>2 լեդ և 2 հատ 220 Օմ դիմադրություն</li>
+        <li>լարեր «պապա-պապա», «պապա-մամա»</li>
+        </ul>
+<img src="img/arduinoDHT11.png" class="nkar">
+    <p>
+        DHT11 սենսորի հետ աշխատելու համար անհրաժեշտ է գրադարանը տեղադրել 
+        : Դա անելու համար դուք պետք է ներբեռնեք արխիվը
+         <a hraf="https://drive.google.com/file/d/131vhl3eJOa_6Fvbp3SMCez-BnVBkMQFg/view" target="_blank">հղումից ,</a>
+         DHT11 սենսորն օգտագործելիս պետք է գրադարանը 
+           կոդի մեջ ներմուծել : Ներբեռնեք հետևյալ ծրագիրը՝ DHT11 օդի
+            ջերմաստիճանի սենսորը Arduino-ին միացնելուց հետո:
+    </p>
+    <pre>
+        #include <DHT.h>      // ներմուծում ենք գրադարանը
+            DHT dht(2, DHT11);  // հաղորդում, թե որ պորտին է միացված
+            
+            <font color="blue"> void </font><font color="green">setup</font>() {
+               dht.begin();                // թողարկում ենք DHT11 սենսորը
+               Serial.begin(9600);   
+            }
+            
+            void loop() {
+               // հաշվում ենք ջերմաստիճանը  (t) и խոնավությունը(h)
+               float h = dht.readHumidity();
+               float t = dht.readTemperature();
+            
+               // արտածում ենք ջերմաստիճանը (t) и խոնավությունը (h) էկրանին
+               Serial.print("Խոնավություն՝  ");
+               Serial.println(h);
+               Serial.print("Ջերմաստիճան՝  ");
+               Serial.println(t);
+            }
+    </pre>
+
+    <h2 class="ver">Կոդի մեկնաբանություն</h2>
+    <ol>
+        <li>«h» և «t» փոփոխականները float  տիպի են, որն օգտագործվում է լողացող կետով թվերը պահելու համար (Arduino-ին միանալիս)</li>
+        <li>Serial.print() հրամանը տեղեկություն է ուղարկում պորտին առանց տողերի ընդհատման, իսկ  Serial.println()հրամանը տեղեկություն
+             է հաղորդում պորտին նոր տողից:
+        </li>
+    </ol>
+
+    <h2 class="ver">DHT11 և LCD 1602 միացումը Arduino-ին</h2> 
+    <img src="img/lcdDHT11.jpg" class="nkar">
+    <pre>
+        #include <Wire.h>                       // գրադարան I2C-ի համար 
+            #include <LiquidCrystal_I2C.h> //ներմուծում ենք գրադարանը LCD 1602-ի համար
+            #include <DHT.h>                         // Գրադարան DHT11 համար
+            
+            LiquidCrystal_I2C LCD(0x27,16,2);  // LCD-ին անուն ենք վերագրում
+            DHT dht(2, DHT11);                          // սենսորի միացումը պորտին
+            
+            <font color="blue"> void </font><font color="green">setup</font>() {
+               LCD.init();            //  LCD ինիցիալիզացիա
+               LCD.backlight();  // էկրանի լույսի միացում
+               dht.begin();         // թողարկում ենք  DHT11 սենսորը
+            }
+            
+            void loop() {
+              
+               float h = dht.readHumidity();
+               float t = dht.readTemperature();
+            
+               // ջերմաստիճանը (t) և խոնավությունը (h) արտածում ենք LCD վրա
+               LCD.setCursor(0,0);
+               LCD.print("Խոնավություն՝  ");
+               LCD.print(h);
+            
+               LCD.setCursor(0,1);
+               LCD.print("Ջերմաստիճան՝  ");
+               LCD.print(t);
+            
+               delay(1000);
+               LCD.clear();
+            }
+    </pre>
+
+    <h2 class="ver">Կոդի մեկնաբանություն</h2>
+    <ul>
+        <li>
+            Սենսորը միկրոկոնտրոլերին միացնելու համար կարող եք օգտագործել ցանկացած ընդհանուր նշանակության պին
+        </li>
+        <li>
+            Ծրագրի  LCD.clear()հրամանը մաքրում է ցուցադրման էկրանը գրվածքից՝ DHT11 Arduino ջերմաստիճանի սենսորի նոր արժեքներ ցուցադրելու համար:
+        </li>
+        <li>
+            Եթե անհրաժեշտ է ջերմաստիճանի և խոնավության արժեքներ ստանալ առանց լողացող կետով թվերի, float տիպի փոխարեն օգտագործեք int տիպը
+        </li>
+    </ul>
+    
+</body> 
+</html>

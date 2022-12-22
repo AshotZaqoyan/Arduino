@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto Rezistor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans&display=swap"rel="stylesheet">
+</head>
+
+<body>
+    <heder>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <img src="img/menu.svg" alt="menu" class="menu_svg">
+            </label>
+            <label class="logo"><a href="Դասեր.html" class="logo_txt"><img src="img/logo.svg" alt="logo" class="logo"></a></label>
+            <ul class="navul">
+                <li><a href="Դասեր.html" class="activ">Դասեր</a></li>
+                <li><a class="noactiv" href="Տպասալեր.html">Տպասալեր</a></li>
+                <li><a class="noactiv" href="Լեզու.html">Լեզու</a></li>
+                <li><a class="noactiv" href="Նախագծեր.html">Նախագծեր</a></li>
+            </ul>
+        </nav>
+    </heder>
+    <br><br><br><br><br><br>
+    <main>
+        <div class="div_main">
+            <h1 class="ver_c">Ինչպես է Միանում Ֆոտոռեզիստորը Ardunio-ին</h1>
+            <p>
+                <font size="4">Ֆոտոռեզիստորը
+                    կիսահաղորդչային սարք է, որը լույսի
+                    ազդեցության տակ նվազեցնում է
+                    էլեկտրական դիմադրությունը<b>(որոշ տիպերի մոտ
+                        դիմադրությունը նվազում է 2-3 կարգով):</b>
+                    Ֆոտոռեզիստորի հիմնական մասը կազմում է կիսահաղորդչային
+                    էլեմենտը,որը տեղադրված է այնպես,որ լույսը ընկնի վրան:
+            </p>
+            </font>
+            <img src="img/fororezis.png" width="600" height="300" class="nkar">
+            <font size="4">
+                <p>Ֆոտոռեզիստորի աշխատանքը հիմնված է
+                    լուսային էներգիայի կլանման արդյունքում
+                    էլեկտրոնների առաջացման վրա,ինչի հետևանքով նվազում է դիմադրությունը:
+                    Ֆոտոռզիստորի աշխատանքը շատ պարզ է, այդ իսկ պատճառով այն լայնորեն կիրառվում է գիտության տարբեր
+                    ճյուղերում և տեխնիկայի մեջ:Դա բարձրացվում է Ֆոտոռեզիստորի բարձր զգայունությամբ, փոքր չափերով և պարզ
+                    կառուցվածքով, երկարակեցությամբ:
+            </font>
+
+            </p>
+
+            <h2 class="ver">Անհրաժեշտ էլեմենտներ</h2>
+
+            <ul>
+                <font size="4">
+                    <li>Ardunio Uno/Ardunio Nano/Ardunio Mega</li>
+                    <li>breadbouard</li>
+                    <li>1 Ֆոտոռեզիստոր </li>
+                    <li>1 լեդ լույս</li>
+                    <li>2 ռեզիստոր 220օմ</li>
+                    <li>լարեր «պապա-պապա»</li>
+            </ul>
+            </font>
+
+            <img src="img/ledFotorezistor.jpg" width="600" height="300" class="nkar">
+
+            <pre>
+
+                <font color="green">#define</font> SENSOR A0
+                <font color="green">#define</font> LED 9
+                unsigned int value = 0;
+             
+                <font color="blue">void</font><font color="green"> setup</font>() {
+                    <font color="#f56302">pinMode</font>(LED, <font color="blue">OUTPUT</font>);
+                    <font color="#f56302">pinMode</font>(SENSOR,<font color="blue"> INPUT</font>);
+                }
+             
+                <font color="blue">void</font><font color="green"> loop</font>() {
+                    value = <font color="#f56302">analogRead</font>(SENSOR);
+                    if (value<500) <font color="#f56302">digitalWrite</font>(LED, <font color="blue">HIGH</font>);
+                    if (value>500) <font color="#f56302">digitalWrite</font>(LED, LOW);
+                }
+                    </pre>
+            <h2 class="ver">Կոդի Մեկնաբանություն</h2>
+            <ol>
+                <li>անալոգային AO մուտքի արժեքը վերագրեցինք SENSOR-ին՝ #define ֆունկցիայի օգնությամբ:</li>
+                <li>unsigned int ցույց է տալիս, որ value կարող է ընդունել միայն դրական թիվ, ի սկզբանե= է 0-ի:</li>
+                <li>if պայմանի օպերատրի օգնությամբ սահմանում են համապատասխան գործողությունը՝ պայմանը բազմապատկելու
+                    դեպքում: </li>
+
+            </ol>
+        </div>
+    </main>
+</body>
+
+</html>

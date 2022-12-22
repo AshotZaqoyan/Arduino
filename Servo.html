@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="css.css" >
+    <title>Servo</title>
+   
+</head>
+<body>
+    <h1 align="center"><font color="blue"> Ինչպես միացնել սերվոն Ardunio-ին</h1> </font> 
+    <img src="img/servo1.jpg"class="nkar" >
+  <p>Servo drive (servomotor) տարբեր ռոբոտների և մեխանիզմների նախագծման կարևոր տարր է: Սա ճշգրիտ կատարող է, որն ունի հետադարձ կապ, որը թույլ է տալիս ճշգրիտ վերահսկել մեխանիզմների շարժումները: 
+      </p>  
+      <img src="img/ustrojstvo.jpg" class="nkar">
+     <p>Սերվո շարժիչը բաղկացած է սենսորից (արագությունը, դիրքը և այլն), մեխանիկական համակարգից, շարժիչի կառավարման միավորից և էլեկտրոնային միացումից: Սարքի ռեդուկտորները (փոխանցումները) պատրաստված են մետաղից, ածխածնի մանրաթելից կամ պլաստմասից։ Սերվոմատորի պլաստմասե  վերնամասերը չեն դիմանում ծանր բեռների և ցնցումների:
+       <br><br>
+       Սերվոմոտորն ունի ներկառուցված պոտենցիոմետր, որը միացված է ելքային լիսեռին: Լիսեռը պտտվելով, սերվոն փոխում է
+        պոտենցիոմետրի լարման արժեքը: Պլատան վերլուծում է մուտքային ազդանշանի լարումը և համեմատում այն ​​պոտենցիոմետրի լարման հետ՝ ելնելով ստացված արդյունքից շարժիչը <font color="cyan">սահուն կերպով կպտտվի,</font>
+        այնքան ժամանակ, մինչև  կհավասարվի  ելքի և պոտենցիոմետրի լարումները:
+    </p> 
+    <h2>Անհրաժեշտ էլեմենտներ</h2>
+    <ul>
+       <li>Ardunio Uno/Ardunio Nano/Ardunio Mega</li> 
+       <li>Servo SG90,MG995,MG996</li> 
+       <li>պոտենցիոմետր</li> 
+       <li>Breadboard</li> 
+       <li>լարեր «պապա-պապա» և«պապա-մամա»/li> 
+</ul>
+<p>Servo-ն Arduino-ին միացնելու սխեման սովորաբար հետևյալն է. սև լարը միացրեք GND-ին, կարմիր լարը միացրեք 5 Վ-ին, նարնջագույն/դեղին մետաղալարը ընդհանուր նշանակության թվային պինին: Servo կառավարումը Arduino-ում բավականին պարզ է, բայց servo-ները պտտման անկյունների առումով բաժանվում են 180 ° և 360 °, ինչը պետք է հաշվի առնել սերվոյի օգտագործմամբ նախագծեր մշակելիս:
+    </p>
+    <img src="img/podkluchenie.jpg" class="nkar">
+    <table border="2">
+
+        <tr>
+        <td>Սերվո</td>
+        <td>Ardunio Uno</td>
+        <td>Ardunio Nano</td>
+        <td>Ardunio Mega</td>
+             </tr>
+          <tr>
+              <td>սև մետաղալար</td>
+              <td>GND</td>
+              <td>GND</td>
+              <td>GND</td>
+              </tr>   
+              <tr>
+               <td>Կարմիր մետաղալար</td> 
+               <td>5վ</td>
+               <td>5վ</td> 
+               <td>5վ</td> 
+               
+                  </tr>
+                  <tr>
+                      <td>դեղին մետաղալար</td> 
+                      <td>11</td> 
+                      <td>11</td> 
+                      <td>11</td> 
+                     </tr>
+
+
+        </table>
+        <p>Միացրեք սերվոն Arduino տպասալինին և վերբեռնեք սկետչը:<font color="blue">  void() և loop() մեթոդներում</font> մենք կսահմանենք սերվոյի պտտման ցանկալի անկյունը և մինչև հաջորդ պտույտը սպասելու ժամանակը:
+            </p>
+        <pre ><font size="4"><FONT COLOR="GREEN">#include</FONT><font color="#F56302"> < Servo .h></font> // ներառել գրադարանը սերվոյի հետ աշխատելու համար
+            
+            <font color="#F56302">Servo </font>servo1 ; // հայտարարել «servo» տիպի servo1 փոփոխական
+            
+            <font color="blue">void</font><font color="green"> setup</font> () {
+               servo1. <font color="F56302">attach</font> (11); // կապել սերվոն պին 11
+            }
+            
+            <font color="blue">void </font> <font color="green">loop</font> () {
+               servo1.<font color="F56302">write</font>  (0); // սահմանել ռոտացիայի անկյունը 0 
+               <font color="F56302">delay </font>(2000); // սպասեք 2 վայրկյան
+            
+               servo1. <font color="F56302">write</font> (90); // սահմանել ռոտացիայի անկյունը 90 
+               <font color="F56302">delay </font>(2000 ); // սպասեք 2 վայրկյան
+            
+               servo1. <font color="F56302">write </font>(180); // սահմանել ռոտացիայի անկյունը 180 
+               <font color="F56302">delay </font>(2000 ); // սպասել 2 վայրկյան 
+            }
+            </pre></font>
+         
+            <img src="img/podkluchenie-servo.jpg" class="nkar">
+             <font color="blue">  <h2 align="center">Կոդի բացատրություն</h2> </font>
+          <ol>
+              <li> սերվոն անվանել ենք այսպես<font color="F56302"> servo</font> </li>
+              <li> <font color="F56302">servo.write(analogRead(A0)/4)</font>հրամանով  արժեքներ է փոխանցում սերվո լիսեռին. ստացված լարումը պոտենցիոմետրից բաժանում ենք չորսի և այս արժեքը ուղարկում սերվոմատորին:</li>
+              <li> <font color="F56302">Serial.println (servo.read(10))</font>հրամանը  կարդում է սերվո լիսեռի անկյան արժեքը և այն արտածում  մոնիտորին:</li>
+             
+              
+              
+              
+              
+
+            </ol>
+      
+</body>
+</html>
